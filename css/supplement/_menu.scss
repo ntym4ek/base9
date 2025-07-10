@@ -1,0 +1,82 @@
+@import "variables"; // продублировано из styles.scss, чтобы переменные не подсвечивались
+
+ul.menu {
+  margin: 0; padding: 0;
+  list-style: none outside;
+  text-align: left;
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+  li {
+    margin: 0; padding: 0;
+    list-style: none;
+  }
+}
+
+.menu-wrapper {
+  display: flex; justify-content: space-between; align-items: center;
+  height: 100%;
+  .region-primary-menu {
+    display: flex; justify-content: start;
+    flex: 1 1 auto;
+  }
+  .region-secondary-menu {
+    display: flex; justify-content: end;
+    flex: 0 0 auto;
+  }
+
+  // верхний уровень меню
+  ul.menu {
+    a {
+      display: inline-block;
+      text-decoration: none;
+      padding: .5rem 1rem;
+      transition: color 150ms;
+    }
+    > li {
+      display: inline-block;
+      position: relative;
+      &:hover > .menu { visibility: visible; opacity: 1; }
+      > a {
+        color: $menu-item-color; white-space: nowrap;
+        &.is-active,
+        &:focus,
+        &.active-trail { color: $menu-item-active-color; }
+        &:hover { color: $menu-item-hover-color; }
+      }
+      > &.first a { padding-left: 0; }  // выровнять первый пункт меню по сетке
+    }
+
+  }
+  // выпадающее меню
+  ul.menu .menu {
+    box-shadow: 0 8px 16px 5px rgba(0, 0, 0, 0.2);
+    visibility: hidden; opacity: 0;
+    position: absolute; z-index: 10;
+    background-color: $submenu-bkg;
+    border-left: 3px solid $brand-color;
+    min-width: $submenu-min-width;
+    padding: .5rem 0;
+    transition: all 200ms;
+    > li {
+      display: block;
+      padding-left: 1rem; padding-right: 1rem;
+      a {
+        color: $submenu-item-color;
+        padding: 0.7rem 0.5rem;
+        width: 100%;
+        transition: all 200ms;
+      }
+      &:hover,
+      &:focus {
+        background: $submenu-item-hover-bkg;
+        a { color: $submenu-item-hover-color; }
+      }
+    }
+
+    .region-primary-menu & { left: 0; }
+    .region-secondary-menu & { right: 0; }
+  }
+
+}

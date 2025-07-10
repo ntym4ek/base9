@@ -1,0 +1,38 @@
+name: Base9
+type: theme
+'base theme': stable9
+version: 1.0.0
+libraries:
+  - base9/base
+  - base9/messages
+  - base9/iconfont
+  - core/normalize
+libraries-extend:
+  user/drupal.user:
+    - base9/user
+  core/drupal.dropbutton:
+    - base9/dropbutton
+  core/drupal.dialog:
+    - base9/dialog
+  file/drupal.file:
+    - base9/file
+  core/drupal.progress:
+    - base9/progress
+description: ''
+core_version_requirement: ^11
+generator: 'starterkit_theme:11.1.7'
+
+regions:
+  header: Header
+  primary_menu: Primary menu
+  secondary_menu: Secondary menu
+  highlighted: Highlighted
+  breadcrumb: Breadcrumb
+  help: Help
+  sidebar_first: Left sidebar
+  content: Content
+  sidebar_second: Right sidebar
+  downlighted: Downlighted
+  footer: Footer
+
+

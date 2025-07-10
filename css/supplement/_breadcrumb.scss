@@ -1,0 +1,10 @@
+@import "variables"; // продублировано из styles.scss, чтобы переменные не подсвечивались
+
+.breadcrumb {
+  color: $text-light; font-size: $font-size-small;
+  margin: $gutter*2 0;
+  a {
+    color: $text-light; text-decoration: none;
+    &:hover { color: $brand-color; }
+  }
+}

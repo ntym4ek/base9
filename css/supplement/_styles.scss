@@ -1,0 +1,28 @@
+// файл, собирающий все стили в одном месте, чтобы подключить их в подтеме
+// пример подключения стилей в подтеме:
+  //
+  // @import "../../base9/css/variables";                                       переменные Базовой темы
+  // @import "variables";                                                       переменные Своей темы
+  // @import "../../base9/css/base9";                                           стили с учётом изменённых переменных
+  // @import "...";                                                             далее идут Свои стили
+  //
+
+// flex-grid на базе изменённого http://sassflexboxgrid.com
+@import "flexbox/flexbox";
+
+// общие стили Базовой темы
+@import "mixins";
+@import "base";
+@import "back-to-top";
+@import "breadcrumb";
+@import "button";
+@import "form";
+@import "helper";
+@import "layout";
+@import "layout-kccc";
+@import "menu";
+@import "menu-mobile";
+@import "message";
+@import "print";
+
+

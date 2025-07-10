@@ -1,0 +1,203 @@
+@import "flexbox/grid-variables";
+
+// colors
+//
+$gray-darkest:      #606060!default;
+$gray-dark:         #7D7C7C!default;
+$gray:              #aaa!default;
+$gray-light:        #ccc!default;
+$gray-lightest:     #E9E9E9!default;
+
+$divider-clr:       #7D7C7C!default;
+$well-bkg-clr:      #F6F5F3!default;
+
+$brand-blue:        #213A6E!default;
+$brand-cyan:        #5bc0de!default;
+$brand-green:       #36AA3D!default;
+$brand-orange:      #f08200!default;
+$brand-red:         #CC1335!default;
+
+$brand-primary:     #213A6E!default; // задавать нужно прямо, а не через переменную цвета, тк в подтеме primary может не быть этого цвета
+$brand-info:        #5bc0de!default;
+$brand-success:     #36AA3D!default;
+$brand-warning:     #f08200!default;
+$brand-danger:      #CC1335!default;
+
+$brand-color:       #213A6E!default;
+
+$brand-green-hover: darken($brand-green, 15%)!default;
+$brand-blue-hover:  lighten($brand-blue, 15%)!default;
+
+$warn-red:          rgba(247, 51, 51, .12)!default;
+$warn-orange:       rgba(247, 201, 51,.38)!default;
+$warn-green:        rgba(51, 247, 51, .12)!default;
+
+$text-color:        #333!default;
+$text-light:        $gray-dark!default;
+$text-muted:        $gray!default;
+
+
+//** Global textual link color.
+$link-color:            $brand-primary !default;
+//** Link hover color set via `darken()` function.
+$link-hover-color:      darken($link-color, 15%) !default;
+//** Link hover decoration.
+$link-hover-decoration: underline !default;
+
+// шрифт
+//
+$font-url:              'https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap'!default;
+$font-name:             'Montserrat'!default;
+
+
+$font-size-h1:            2.33rem!default;           // 42
+$font-size-h2:            1.667rem!default;          // 30
+$font-size-h3:            1.333rem!default;          // 24
+$font-size-h4:            1.222rem!default;          // 22
+$font-size-h5:            1rem!default;              // 18
+$font-size-h6:            .889rem!default;           // 16
+
+$font-size-large:         1.222rem!default;          // 22
+$font-size-base:          1rem!default;              // 18
+$font-size-small:         .889rem!default;           // 16
+
+$input-font-size-base:       16px!default;
+$input-font-size-large:      20px!default;
+$input-font-size-small:      14px!default;
+
+$line-height-base:        1.428571429 !default; // 20/14
+//** Computed "line-height" (`font-size` * `line-height`) for use with `margin`, `padding`, etc.
+$line-height-computed:    floor(($input-font-size-base * $line-height-base)) !default; // ~20px
+
+// страница
+//
+$page-bkg:                #F8F7F4!default;
+
+// шапка
+//
+$header-height:           5rem!default;
+$header-text:             $gray-dark!default;
+$header-bkg:              transparent!default;
+$header-shadow:           0 4px 20px 0 rgba(0, 0, 0, 0.1)!default;
+
+// подвал
+//
+//$footer-height:         80px!default;
+$footer-bkg:              #1E1E1C!default;
+$footer-text:             #fff!default;
+
+// меню
+//
+$menu-mobile-btn-size:    5rem!default;
+$menu-mobile-btn-color:   #fff!default;
+$menu-mobile-btn-bkg:     none!default;
+$menu-mobile-width:       300px!default;
+$menu-mobile-color:       #fff!default;
+$menu-mobile-bkg:         $brand-blue!default;
+$menu-mobile-divider-clr: #fff!default;
+$menu-item-color:         #fff!default;
+$menu-item-bkg-hover:     lighten($menu-mobile-bkg, 10%);
+$menu-item-hover-color:   #ddd!default;
+$menu-item-active-color:  #fff!default;
+$submenu-bkg:             #fff!default;
+$submenu-min-width:       250px!default;
+$submenu-item-color:      $text-color!default;
+$submenu-item-hover-color:$text-color!default;
+$submenu-item-hover-bkg:  $text-muted!default;
+
+
+// Формы
+//
+$form-bottom-margin:        1rem!default;
+$form-item-height:          2.3em!default; // em, чтобы масштабировать в зависимости от размера шрифта
+$input-border-width:        1px!default;
+$input-border-radius:       1px!default;
+
+$label-color:               $text-muted!default;
+$label-weight:              400!default;
+$label-margin:              6px!default;
+
+$input-color:               $text-color!default;
+$input-border-color:        #ccc!default;
+$input-bg-color:            #fff!default;
+$input-bg-disabled:         $gray-light !default;
+$input-disabled-opacity:    .5!default;
+$input-focus-color:         #aaa!default;
+
+$padding-base-vertical:     6px !default;
+$padding-base-horizontal:   12px !default;
+
+$padding-large-vertical:    10px !default;
+$padding-large-horizontal:  16px !default;
+
+$padding-small-vertical:    5px !default;
+$padding-small-horizontal:  10px !default;
+
+$padding-xs-vertical:       4px !default;
+$padding-xs-horizontal:     10px !default;
+
+$line-height-large:         1.3 !default; // extra decimals for Win 8.1 Chrome
+$line-height-small:         1.1 !default;
+
+$border-radius-base:        4px !default;
+$border-radius-large:       6px !default;
+$border-radius-small:       3px !default;
+
+$input-height-base:              ($line-height-computed + ($padding-base-vertical * 2) + 2) !default;
+$input-height-large:             (floor(($input-font-size-large * $line-height-large)) + ($padding-large-vertical * 2) + 2) !default;
+$input-height-small:             (floor(($input-font-size-small * $line-height-small)) + ($padding-small-vertical * 2) + 2) !default;
+
+
+// кнопки
+$btn-font-weight:                normal !default;
+
+$btn-default-color:              #333 !default;
+$btn-default-bg:                 #fff !default;
+$btn-default-border:             #ccc !default;
+$btn-default-h-color:            lighten($btn-default-color, 25%) !default;
+$btn-default-h-bg:               lighten($btn-default-bg, 25%) !default;
+$btn-default-h-border:           lighten($btn-default-border, 25%) !default;
+
+$btn-primary-color:              #fff!default;
+$btn-primary-bg:                 $brand-primary!default;
+$btn-primary-border:             darken($btn-primary-bg, 5%)!default;
+$btn-primary-h-color:            $btn-primary-color !default;
+$btn-primary-h-bg:               darken($btn-primary-bg, 10%) !default;
+$btn-primary-h-border:           darken($btn-primary-border, 10%) !default;
+
+$btn-success-color:              #fff !default;
+$btn-success-bg:                 $brand-success !default;
+$btn-success-border:             darken($btn-success-bg, 5%) !default;
+$btn-success-h-color:            $btn-success-color !default;
+$btn-success-h-bg:               darken($btn-success-bg, 10%) !default;
+$btn-success-h-border:           darken($btn-success-border, 10%) !default;
+
+$btn-info-color:                 #fff !default;
+$btn-info-bg:                    $brand-info !default;
+$btn-info-border:                darken($btn-info-bg, 5%) !default;
+$btn-info-h-color:               $btn-info-color !default;
+$btn-info-h-bg:                  darken($btn-info-bg, 10%) !default;
+$btn-info-h-border:              darken($btn-info-border, 10%) !default;
+
+$btn-warning-color:              #fff !default;
+$btn-warning-bg:                 $brand-warning !default;
+$btn-warning-border:             darken($btn-warning-bg, 5%) !default;
+$btn-warning-h-color:            $btn-warning-color !default;
+$btn-warning-h-bg:               darken($btn-warning-bg, 10%) !default;
+$btn-warning-h-border:           darken($btn-warning-border, 10%) !default;
+
+$btn-danger-color:               #fff !default;
+$btn-danger-bg:                  $brand-danger !default;
+$btn-danger-border:              darken($btn-danger-bg, 5%) !default;
+$btn-danger-h-color:             $btn-danger-color !default;
+$btn-danger-h-bg:                darken($btn-danger-bg, 10%) !default;
+$btn-danger-h-border:            darken($btn-danger-border, 10%) !default;
+
+$btn-link-disabled-color:        $gray-light !default;
+
+// Allows for customizing button radius independently from global border radius
+$btn-border-radius-base:         $border-radius-base !default;
+$btn-border-radius-large:        $border-radius-large !default;
+$btn-border-radius-small:        $border-radius-small !default;
+
+

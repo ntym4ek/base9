@@ -1,0 +1,79 @@
+
+// растянуть блок на всю ширину экрана за рамки родителя
+@mixin screen-width() {
+  position: relative;
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+}
+
+@mixin btn() {
+  background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
+  border: 1px solid transparent;
+  display: inline-block;
+  font-weight: $btn-font-weight; text-align: center; white-space: nowrap;
+  vertical-align: middle;
+  touch-action: manipulation;
+  cursor: pointer;
+  margin-bottom: 0; // For input.btn
+  user-select:none;
+  position: relative; // для вставляемого внутрь ajax throbber
+}
+
+@mixin button-variant($color, $bkg, $border, $color-h: darken($color, 15%), $bkg-h: darken($bkg, 15%), $border-h:darken($border, 15%)) {
+  background-color: $bkg;
+  border-color: $border;
+  color: $color;
+
+  &:focus,
+  &.focus {
+    color: $color-h;
+    background-color: $bkg-h;
+    border-color: $border-h;
+  }
+  &:hover {
+    color: $color-h;
+    background-color: $bkg-h;
+    border-color: $border-h;
+  }
+  &:active,
+  &.active,
+  .open > &.dropdown-toggle {
+    color: $color-h;
+    background-color: $bkg-h;
+    background-image: none;
+    border-color: $border-h;
+
+    &:hover,
+    &:focus,
+    &.focus {
+      color: $color-h;
+      background-color: $bkg-h;
+      border-color: $border-h;
+    }
+  }
+  &.disabled,
+  &[disabled],
+  fieldset[disabled] & {
+    &:hover,
+    &:focus,
+    &.focus {
+      background-color: $bkg;
+      border-color: $border;
+    }
+  }
+
+  .badge {
+    color: $bkg;
+    background-color: $color;
+  }
+}
+
+// Button sizes
+@mixin button-size($padding-vertical, $padding-horizontal, $font-size, $line-height, $border-radius, $height) {
+  padding: $padding-vertical $padding-horizontal;
+  font-size: $font-size;
+  line-height: $line-height;
+  border-radius: $border-radius;
+  height: $height;
+}
+

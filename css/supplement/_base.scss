@@ -1,0 +1,304 @@
+@import "variables"; // продублировано из styles.scss, чтобы переменные не подсвечивались
+
+@import url($font-url);
+
+html {
+  height: 100%;
+  font-size: 12px;
+  @media #{$smart}    { font-size: 14px; }
+  @media #{$pad}      { font-size: 16px; }
+  @media #{$tablet}   { font-size: 17px; }
+  @media #{$laptop}   { font-size: 18px; }
+}
+
+*,
+html * {
+  box-sizing: border-box;
+  outline: 0 !important;
+  scrollbar-width: thin;
+  scrollbar-color: $brand-color #f1f1f1;
+}
+
+a { text-decoration: none; }
+
+body {
+  background-color: $page-bkg;
+  color: $text-color; line-height: 1.22; font-family: $font-name, Helvetica, Arial, sans-serif;
+  height: 100%; min-height: 100%;
+  overflow-y: scroll;
+  position: relative;
+}
+
+input,
+button,
+select,
+textarea {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+h1, .h1 { font-size: $font-size-h1; font-weight: 700; }
+h2, .h2 { font-size: $font-size-h2; font-weight: 700; }
+h3, .h3 { font-size: $font-size-h3; font-weight: 700; }
+h4, .h4 { font-size: $font-size-h4; font-weight: 700; }
+h5, .h5 { font-size: $font-size-h5; font-weight: 700; }
+h6, .h6 { font-size: $font-size-h6; font-weight: 700; }
+
+h1, h2, h3 { margin: 2rem 0 1rem; }
+h4, h5, h6 { margin: 1rem 0; }
+
+.screen-width {
+  @include screen-width();
+  overflow: hidden;
+}
+
+img { display: block; }
+
+.clearfix:after { content: ''; }
+
+
+
+// --- Закладки ------------------------------------------------------------------------
+ul.tabs.primary {
+  font-size: .8rem; text-align: right;
+  margin: 2rem 0 1rem;
+  li {
+    a {
+      color: $text-color;
+      padding: 0.5em 1em;
+      line-height: 2em;
+    }
+    &.active a {
+      background: #fff;
+      border-bottom: 1px solid #fff;
+    }
+  }
+}
+ul.tabs.secondary {
+  border: none;
+  text-align: right;
+  padding: 0; margin: 0 0 2rem;
+  > li {
+    border: none;
+    padding: 0; margin-left: .5rem;
+    a {
+      display: inline-block;
+      background: $gray-light;
+      color: $text-color;
+      padding: .2rem 1rem;
+      transition: all 100ms;
+    }
+    & a:hover,
+    &.active a {
+      background: $brand-color;
+      border: none;
+      color: #fff;
+    }
+  }
+}
+.vertical-tabs {
+  ul.vertical-tabs-list li a {
+    color: inherit;
+    padding: .8rem;
+  }
+  strong { font-weight: 500; }
+  .summary {
+    color: $text-light; font-size: $font-size-base*.8;
+    margin-top: .5rem;
+  }
+  fieldset.vertical-tabs-pane {
+    padding: 1rem;
+    @media #{$tablet} {
+      padding: 1rem 2rem;
+    }
+  }
+}
+
+.horizontal-tabs {
+  ul.horizontal-tabs-list li a {
+    color: inherit;
+    padding: .4rem .8rem;
+  }
+  strong { font-weight: 500; }
+  fieldset.horizontal-tabs-pane {
+    padding: 1rem;
+    @media #{$tablet} {
+      padding: 1rem 2rem;
+    }
+  }
+}
+
+// --- Views --------------------------------------------------------------------------
+.view {
+  margin-bottom: 2rem;
+
+  @media #{$tablet} {
+    margin-bottom: 4rem;
+  }
+}
+.views-exposed-form,
+.exposed-filters {
+  margin-bottom: 1rem;
+  .views-exposed-widgets,
+  .filters {
+    display: flex;
+  }
+  .filters {
+    float: none;
+    width: initial;
+  }
+  .views-exposed-widget,
+  .filters > .form-item {
+    margin-bottom: 1rem;
+    label {
+      font-weight: 500;
+      margin-bottom: 6px;
+    }
+    select, input { width: 100%; }
+  }
+
+  .views-exposed-widget {
+    display: flex; flex-wrap: wrap;
+    padding-top: 0;
+    label { flex: 100%; }
+    .views-operator {
+      flex: 0 0 40%;
+      padding-right: 1rem;
+    }
+    .views-widget { flex: 1 0 60%; }
+    .form-submit { margin-top: 1.6rem; }
+  }
+  .views-exposed-widget:last-child {
+    padding-right: 0;
+  }
+
+  .views-exposed-widget,
+  .views-exposed-widget.views-widget-filter-type,                     // список материалов
+  .views-exposed-widget.views-widget-filter-status,                   // список материалов
+  .views-reset-button {
+    //@include col();
+  }
+
+  .views-exposed-widget.views-widget-filter-status { max-width: 180px; }
+
+  @media #{$tablet} {
+    .views-exposed-widget,
+    .filters > .form-item {
+      max-width: 33%;
+    }
+    .views-submit-button,
+    .views-reset-button {
+      //@include col();
+    }
+
+    .views-exposed-widget.views-widget-filter-type,
+    .views-exposed-widget.views-widget-filter-mail,
+    .views-exposed-widget.views-widget-filter-field_user_surname_value  {
+      max-width: 270px;                                                // текстовые поля с size > 30 слишком широки
+    }
+  }
+}
+
+// --- Пользователь -------------------------------------------------------------------
+.profile {
+  margin: 0 0 2rem;
+  .profile-left {
+    margin-bottom: 1rem;
+    .image img { width: initial; }
+  }
+  .profile-name {
+    font-size: $font-size-h3; font-weight: 700;
+    margin-bottom: 1rem;
+  }
+  .profile-role {
+    font-size: $font-size-h4; font-weight: 500;
+    margin-bottom: 1rem;
+  }
+  .profile-counts {
+    display: flex; flex-wrap: wrap;
+    margin-bottom: 1rem;
+    .profile-count {
+      border-radius: 4px;
+      background-color: $brand-color;
+      color: #fff; text-align: center;
+      margin: 0 1rem 1rem 0; padding: 1rem;
+      min-width: 100px;
+      &:last-child { margin-right: 0; }
+    }
+    .count-amount { font-size: $font-size-h2; font-weight: 700; }
+  }
+  a { color: inherit; }
+
+  @media #{$tablet} {
+    margin-bottom: 4rem;
+    .profile-name { margin-bottom: 2rem; }
+    .profile-role { margin-bottom: 2rem; }
+    .profile-counts {
+      margin-bottom: 2rem;
+    }
+  }
+}
+
+
+// --- Таблицы ------------------------------------------------------------------------
+table {
+  margin-bottom: 1rem;
+  [align=center] { text-align: center; }
+  [align=right] { text-align: right; }
+  th {
+    font-weight: 500;
+    border-top: 1px solid transparent;  border-left: 1px solid transparent;
+    &:last-child { border-right: 1px solid transparent; }
+  }
+  td {
+    //border-top: 1px solid $text-muted;
+    border-left: 1px solid $text-muted;
+    padding: .5rem;
+    &:last-child { border-right: 1px solid $text-muted; }
+  }
+  //tr:last-child td { border-bottom: 1px solid $text-muted; }
+  tr.odd .form-item,
+  tr.even .form-item {
+    white-space: initial; // в системной теме перенос запрещён
+  }
+
+  a.tabledrag-handle .handle {
+    height: 22px; width: 22px;
+  }
+  form &.field-multiple-table td.field-multiple-drag a.tabledrag-handle {
+    padding: 0;
+  }
+}
+
+fieldset {
+  border-width: 1px;
+  padding: 1rem;
+}
+.field {
+  margin-bottom: 1rem;
+}
+
+
+
+// --- Иконочный шрифт ---------------------------------------------------------------------
+.icon {
+  display: inline-block;
+  line-height: normal;
+  vertical-align: middle;
+}
+
+
+// --- Настройки throbber совместно с переопределением Drupal.ajax.prototype.beforeSend в ajax.js ----------------------
+.ajax-wrapper {
+  position: relative;
+  display: inline-block;
+  .message { display: none; } // ajax-wrapper используется для элементов формы, сообщение в них не отображаем
+}
+.ajax-progress-throbber {
+  position: absolute; top: 0; bottom: 0; left: 0; right: 0;
+  .throbber-wrapper {
+    display: flex; justify-content: center; align-items: center;
+    width: 100%; height: 100%;
+  }
+}

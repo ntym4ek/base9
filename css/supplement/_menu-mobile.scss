@@ -1,0 +1,65 @@
+/**
+ * @file
+ * Visual styles for mobile menu.
+ */
+
+@import "variables"; // продублировано из styles.scss, чтобы переменные не подсвечивались
+
+.menu-mobile-wrapper {
+  display: flex; flex-direction: column; justify-content: space-between;
+  height: 100%;
+
+  ul.menu {
+    .expanded > a {
+      display: flex; align-items: center;
+      cursor: pointer;
+      &::after {
+        flex-shrink: 0;
+        width: 1.25rem; height: 1.25rem;
+        margin-left: auto;
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23ffffff'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+        background-repeat: no-repeat; background-size: 1.25rem;
+        content: "";
+        transition: transform 200ms ease-out;
+      }
+    }
+
+    li, li.leaf {
+      display: list-item;
+      padding: 0 1rem;
+      > a {
+        color: $menu-mobile-color; font-size: 14px; text-decoration: none; text-transform: uppercase; word-spacing: 1.5px;
+        display: block;
+        padding: 1rem;
+      }
+      &:not(:last-child) a { border-bottom: 1px solid $menu-mobile-divider-clr; }
+    }
+    li.leaf {
+      > a {
+        &:hover,
+        &.active { background-color: $menu-item-bkg-hover; }
+      }
+    }
+    .sub-menu { padding-left: 1rem; }
+
+    .show.expanded > a::after,
+    .slidedown.expanded > a::after {
+      transform: rotate(-180deg);
+    }
+
+    li:not(.show) .sub-menu {
+      display: none;
+    }
+  }
+}
+
+// для размещения в мобильном меню отдельных ссылок,
+// типа перехода на Глобальный сайт или переключения языка
+.menu-mobile-link {
+  padding: 0 1rem;
+  a {
+    display: block;
+    color: $menu-mobile-color; text-transform: uppercase;
+    padding: 1rem;
+  }
+}

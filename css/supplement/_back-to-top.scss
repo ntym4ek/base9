@@ -1,0 +1,25 @@
+@import "variables"; // продублировано из styles.scss, чтобы переменные не подсвечивались
+
+// --- Кнопка Вернуться к началу страницы --------------------------------------------------
+#back-to-top {
+  display: none;
+  position: fixed; bottom: 5rem; right: 6%; z-index: 100;
+  cursor: pointer;
+
+  background: #fff;
+  border-radius: 50px;
+  border: .5rem solid #{$brand-primary + '85'};
+  font-size: 2rem;
+  .icon {
+    color: $brand-color;
+    margin: -1px;                                                               // чтобы не вылазили щели
+  }
+
+  @media #{$pad} {
+    .icon { font-size: 2rem; }
+  }
+  @media #{$tablet} {
+    .icon { font-size: 1.4rem; }
+    width: 60px; height: 60px;
+  }
+}

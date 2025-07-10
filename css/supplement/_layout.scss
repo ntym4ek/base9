@@ -1,0 +1,122 @@
+@import "variables"; // продублировано из styles.scss, чтобы переменные не подсвечивались
+
+// --- Разметка страницы --------------------------------------------------------------
+.page-wrapper {
+  overflow: hidden;
+}
+
+.page {
+  display: flex; flex-direction: column;                    // прижать подвал
+  min-height: 100vh;                                        // при открытом меню подвал не прижимается к низу страницы
+  position: relative;
+  transition: all 200ms ease-in;
+}
+
+.page-offside {
+  background: $menu-mobile-bkg;
+  position: fixed; bottom: 0; z-index: 11;
+  width: $menu-mobile-width; height: 100%;
+  padding: 0 0 4em 0;
+  transition: all 200ms ease-in;
+  display: flex; flex-direction: column; flex-wrap: nowrap;
+  overflow-y: scroll;
+
+  .page-offside-left & {
+    left: 0;
+    margin: 0 0 0 (-$menu-mobile-width);
+  }
+  .page-offside-right & {
+    right: 0;
+    margin: 0 (-$menu-mobile-width) 0 0;
+  }
+
+  @media #{$laptop} {
+    display: none;
+  }
+}
+
+.page-offside-opened {
+  .page-offside { margin: 0; }
+
+  // меню слева
+  &.page-offside-left {
+    .page-offside-label {
+      .label .icon {
+        transition: 0.5s;
+        transform: translate(2px, 0);
+        &:before{ transform: rotateZ(-45deg) scaleX(0.75) translate(-10px, -3px); }
+        &:after{ transform: rotateZ(45deg) scaleX(0.75) translate(-10px, 3px); }
+      }
+    }
+    .page { transform: translate3d($menu-mobile-width, 0, 0); }
+  }
+  // меню справа
+  &.page-offside-right {
+    .page-offside-label {
+      .label .icon {
+        transition: 0.5s;
+        transform: translate(-2px, 0);
+        &:before{ transform: rotateZ(45deg) scaleX(0.75) translate(10px, -3px); }
+        &:after{ transform: rotateZ(-45deg) scaleX(0.75) translate(10px, 3px); }
+      }
+    }
+    .page { transform: translate3d($menu-mobile-width, 0, 0); }
+  }
+}
+
+.page-offside-label {
+  background: $menu-mobile-btn-bkg; border-radius: 2px;
+  display: block;
+  color: $menu-mobile-btn-color; font-size: $menu-mobile-btn-size;
+  height: $menu-mobile-btn-size;
+  transition: all 200ms ease-in;
+  overflow: hidden;
+  position: relative;
+  .label {
+    display: flex; justify-content: center; align-items: center;
+
+    // анимированная иконка, размер определяется размеров шрифта (задан чуть выше)
+    width: .5em; height: 1em;
+    transition-duration: 0.2s;
+    .icon,
+    .icon:before,
+    .icon:after {
+      background-color: $menu-mobile-btn-color;
+      border-radius: 5px;
+      transition-duration: 0.2s;
+      position: absolute; top: .467em;
+      width: .5em; height: 0.067em;
+    }
+    .icon {
+      top: .467em;
+      &:before { content: ""; top: -0.167em; }
+      &:after { content: ""; top: 0.167em; }
+    }
+  }
+
+  @media #{$laptop} {
+    display: none;
+  }
+}
+
+.page-content {
+  flex: 1 0 auto;
+}
+
+.page-footer {
+  background: $footer-bkg;
+  color: $footer-text;
+  padding: 2rem 0;
+
+  .container { height: 100%; }
+  .rights { font-size: 1.1rem; text-align: right; }
+}
+
+.page-title {
+  margin-bottom: 2rem;
+}
+
+// корректировка стандартного стиля, оставляющего 1px под подвалом
+.visually-hidden {
+  inset: 0;
+}

@@ -1,0 +1,188 @@
+@import "variables"; // продублировано из styles.scss, чтобы переменные не подсвечивались
+
+// --- Разметка страницы в корпоративном стиле ---------------------------------
+.layout-kccc {
+
+  .page-header {
+    box-shadow: none;
+    position: absolute; top: 45px; left: 0; right: 0; z-index: 10;
+    padding: 0;
+    .container {
+      display: flex;
+      padding: 0 1rem;
+    }
+    .page-header-inner {
+      display: flex;
+      width: 100%; height: 100%;
+      &:before {
+        background-color: $brand-color;
+        content: "";
+        display: block;
+        flex: 1;
+        margin-right: -1px; // закрыть прозрачную полосу на макбуке
+      }
+      &:after {
+        background: rgba(27, 30, 40, 0.58);
+        content: "";
+        display: block;
+        flex: 1;
+      }
+    }
+    &__brand {
+      flex: 0 0 auto;
+      height: 100%;
+      padding-right: 30px;
+    }
+    &__menu {
+      flex: 1 0 auto;
+      height: 100%;
+    }
+
+    .branding {
+      display: flex; justify-content: center; align-items: center;
+      background-color: $brand-color;
+      color: #fff; line-height: 1; text-align: center;
+      padding: 15px;
+      height: 100%; width: 270px;                     // определяет ширину брендовой части меню
+
+      a { color: inherit; }
+      &__brand { flex: 1 0 auto; }
+      .name { font-size: 1.5em; font-weight: 700; text-transform: uppercase; }
+      .site-name {
+        font-size: .85em;
+        max-width: 200px;
+        margin: 0 auto 5px;
+      }
+      &__logo {
+        height: 100%;
+        flex: 0 0 41px;
+        img {
+          display: block;
+          max-width: 100%; max-height: 100%;
+        }
+      }
+    }
+
+    .menu-bkg {
+      display:grid; justify-content: flex-end; align-items: center;
+      background: rgba(27, 30, 40, 0.58);
+      height: 100%;
+      position: relative;
+      padding-right: 1rem;
+    }
+
+    @media #{$pad} {
+      .branding {
+        width: 315px;
+        padding: 15px;
+        &__logo { flex: 0 0 55px; }
+      }
+      .menu-wrapper { padding-left: 2rem; }
+    }
+    @media #{$tablet} {
+      .menu-bkg { justify-content: normal; }
+    }
+    @media #{$laptop} {
+      height: 90px;
+      .branding {
+        font-size: 1rem;
+        padding-right: 30px;
+        width: 360px;
+      }
+      .menu {
+        font-size: 18px;
+        .sub-menu {
+          font-size: $font-size-base;
+          border-left: 5px solid $brand-color;
+          min-width: 230px;
+          .logo { flex: 0 0 55px; }
+        }
+        > li {
+          > a, &.first > a {
+            font-weight: 500;
+            padding: 1rem;
+          }
+        }
+      }
+      .language-switch a { font-weight: 500; }
+    }
+  }
+
+  .page-margin {
+    min-height: 120px;
+
+    @media #{$tablet} {
+      min-height: 130px;
+    }
+    @media #{$laptop} {
+      min-height: 160px;
+    }
+  }
+
+  .page-banner {
+    .container { display: flex; align-items: center; }
+    .screen-width { height: 200px; }
+    .image {
+      height: 100%; width: 100%;
+      position: absolute; z-index: -1;
+      img {
+        object-fit: cover;
+        height: 100%; width: 100%;
+      }
+    }
+    .banner-title-wrapper {
+      display: flex; flex-wrap: wrap; align-content: end;
+      color: #fff; font-weight: 700;
+      height: 100%;
+      padding-top: 4rem;
+      padding-bottom: 2rem;
+      max-width: initial;
+    }
+    .banner-title { font-size: $font-size-h1 * .7; font-weight: 800; line-height: 1.1; }
+    .banner-suffix {
+      font-size: $font-size-large; font-weight: 600; line-height: 1.4;
+      margin-top: 1rem;
+    }
+
+    @media #{$tablet} {
+      .screen-width { height: 750px; }
+      .banner-title-wrapper { padding-bottom: 4rem; }
+      .banner-title {
+        font-size: 56px;
+        margin-top: 4rem;
+      }
+    }
+  }
+
+  .breadcrumb { margin-top: 0; }
+
+  .page-footer {
+    .branding {
+      height: 60px;
+      &__logo {
+        height: 100%;
+        img { height: 100%; }
+      }
+    }
+  }
+
+  .page-offside {
+    .branding {
+      display:flex; flex-direction: column; align-items: center;
+      padding: 3rem 0;
+      &__logo {
+        height: 80px;
+        text-align: center;
+        img { max-height: 100%; }
+      }
+      &__brand {
+        color: $menu-mobile-color; text-align: center;
+        margin: .5rem auto;
+      }
+      .name { font-size: $font-size-large; font-weight: 500; }
+      a { color: inherit; }
+    }
+  }
+
+}
+
