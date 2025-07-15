@@ -46,6 +46,13 @@ base:
         weight: -10
       css/components/ui-dialog.css:
         weight: -10
+  js:
+    js/back-to-top.js: {}
+
+  dependencies:
+    - core/jquery
+    - core/drupal
+    - core/once
 
 iconfont:
   version: VERSION
@@ -87,6 +94,9 @@ messages:
     component:
       css/components/messages.css:
         weight: -10
+  js:
+    js/messages.js: { }
+
 node:
   version: VERSION
   css:

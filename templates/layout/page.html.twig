@@ -97,7 +97,7 @@
         {% if banner.image %}
         <div class="page-banner">
           <div class="screen-width">
-            <div class="image">
+            <div class="image image-cover">
               <picture>
                 {% if banner.image.mobile_url %} <source srcset="{{ banner.image.mobile_url  }}" media="(max-width: {{ banner.break }}px)"> {% endif %}
                 <img src="{{ banner.image.url }}" alt="{{ banner.title.text }}">
@@ -106,9 +106,9 @@
             {% if banner.title %}
             <div class="container full-height">
               <div class="banner-title-wrapper">
-                {% if banner.title.prefix %} <div class="banner-prefix">{{ banner.title.prefix }}</div> {% endif %}
-                {% if banner.title.text %}        <div class="banner-title">{{ banner.title.text }}</div> {% endif %}
-                {% if banner.title.suffix %} <div class="banner-suffix">{{ banner.title.suffix }}</div> {% endif %}
+                {% if banner.title.prefix %} <div class="banner-prefix">{{ banner.title.prefix|raw }}</div> {% endif %}
+                {% if banner.title.text %}   <div class="banner-title">{{ banner.title.text|raw }}</div> {% endif %}
+                {% if banner.title.suffix %} <div class="banner-suffix">{{ banner.title.suffix|raw }}</div> {% endif %}
               </div>
             </div>
             {% endif %}
@@ -176,7 +176,7 @@
       </div>
     </footer>
 
-    <div id="back-to-top"><i class="icon icon-back-to-top"></i></div>
+    <div id="back-to-top" data-drupal-selector="back-to-top"><i class="icon icon-back-to-top"></i></div>
 
   </div>
 </div>{# /.page-wrapper #}

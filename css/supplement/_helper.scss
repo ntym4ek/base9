@@ -14,3 +14,11 @@
   color: $brand-danger;
   a { color: inherit; }
 }
+
+.image.image-cover {
+  height: 100%; width: 100%;
+  img {
+    height: 100%; width: 100%;
+    object-fit: cover;
+  }
+}

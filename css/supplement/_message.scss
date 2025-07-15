@@ -1,7 +1,6 @@
 @import "variables"; // продублировано из styles.scss, чтобы переменные не подсвечивались
 
 div.messages {
-  padding: 1rem 0;
   position: relative;
   &:not(.inline) {
     visibility: hidden;

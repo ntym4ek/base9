@@ -1,4 +1,4 @@
-@import "variables"; // продублировано из styles.scss, чтобы переменные не подсвечивались
+@import "variables";                                                            // продублировано из styles.scss, чтобы переменные не подсвечивались
 
 label,
 .label,
@@ -13,7 +13,6 @@ label,
 .field-type-text-long,
 .field-type-text-with-summary
 {
-  margin-top: 0;
   margin-bottom: $form-bottom-margin;
   max-width: 100%;
   label,
@@ -25,8 +24,9 @@ label,
   }
   .form-text,
   .form-textarea,
-  .form-select {
-    font-family: inherit;
+  .form-select,
+  .form-tel,
+  .form-email {
     padding: $padding-base-vertical $padding-base-horizontal;
     color: $input-color; font-size: $input-font-size-base; line-height: $line-height-base;
     background-color: $input-bg-color; background-image: none; border: $input-border-width solid $input-border-color; border-radius: $input-border-radius;
@@ -36,24 +36,28 @@ label,
     &.form-disabled {
       background-color: $gray-lightest;
       cursor: not-allowed;
-      // pointer-events: none; свойство удалено, так как из-за него не отображается значение свойства cursor
+      // pointer-events: none;                                                  свойство удалено, так как из-за него не отображается значение свойства cursor
     }
     &:focus { border-color: $input-focus-color; }
   }
+
   &.form-disabled {
     .form-text,
     .form-textarea,
-    .form-select {
+    .form-select,
+    .form-tel,
+    .form-email  {
       background-color: $input-bg-disabled;
       cursor: not-allowed;
-      // pointer-events: none; свойство удалено, так как из-за него не отображается значение свойства cursor
+      // pointer-events: none;                                                  свойство удалено, так как из-за него не отображается значение свойства cursor
       opacity: $input-disabled-opacity;
     }
   }
+
   .form-button-disabled {
     opacity: $input-disabled-opacity;
     cursor: not-allowed;
-    // pointer-events: none; свойство удалено, так как из-за него не отображается значение свойства cursor
+    // pointer-events: none;                                                    свойство удалено, так как из-за него не отображается значение свойства cursor
   }
 
   .form-text,
@@ -67,6 +71,13 @@ label,
   }
   .form-radios {
     input { margin-top: 0; }
+  }
+
+  .form-item--error-message {
+    color: $brand-danger; font-size: $font-size-small; font-weight: 400;
+    padding: 0 13px;
+    strong { font-weight: inherit; }
+    &:before { display: none; }
   }
 }
 
@@ -98,7 +109,7 @@ fieldset .fieldset-legend {
   }
 }
 
-.form-actions { margin-top: 1em; }
+//.form-actions { margin-top: 1em; }
 
 .filter-wrapper {
   opacity: .3;
@@ -106,7 +117,7 @@ fieldset .fieldset-legend {
   .form-item label { display: inline-block; }
 }
 .form-managed-file {
-  //display: flex;  // открывается не на всю ширину
+  //display: flex;                                                              // открывается не на всю ширину
   .image-preview {
     flex: 0 0 120px;
     padding-bottom: 0;
@@ -114,7 +125,7 @@ fieldset .fieldset-legend {
   .image-widget-data,
   .file-widget-data { float: initial; }
   .image-widget-data .form-group { display: none; }
-  .form-item { margin-bottom: 0; } // в табличной части убирает лишний отступ
+  .form-item { margin-bottom: 0; }                                              // в табличной части убирает лишний отступ
 
   display: flex; flex-wrap: wrap;
   .image-widget-data { flex: 1 1 250px; }
@@ -125,7 +136,6 @@ fieldset .fieldset-legend {
   display: flex;
   margin-bottom: 1rem;
   .form-item { margin-bottom: 0; }
-  //.form-submit { margin-left: -1px; } // скрыть правую границу примыкающего текстового поля
 }
 .input-group {
   display: flex;
@@ -168,4 +178,3 @@ fieldset .fieldset-legend {
     margin: 5vh auto 0;
   }
 }
-

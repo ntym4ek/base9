@@ -120,15 +120,12 @@
   }
 
   .page-banner {
+    margin-bottom: $block-offset-xs;
+
     .container { display: flex; align-items: center; }
     .screen-width { height: 200px; }
     .image {
-      height: 100%; width: 100%;
       position: absolute; z-index: -1;
-      img {
-        object-fit: cover;
-        height: 100%; width: 100%;
-      }
     }
     .banner-title-wrapper {
       display: flex; flex-wrap: wrap; align-content: end;
@@ -145,6 +142,7 @@
     }
 
     @media #{$tablet} {
+      margin-bottom: $block-offset-xl;
       .screen-width { height: 750px; }
       .banner-title-wrapper { padding-bottom: 4rem; }
       .banner-title {
