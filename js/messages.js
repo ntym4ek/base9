@@ -28,7 +28,7 @@
    */
   Drupal.behaviors.messages = {
     attach(context) {
-      once('base9-messages', '[data-drupal-messages] .messages', context).forEach(
+      once('messages-once', '[data-drupal-messages] .messages', context).forEach(
         (element) => {
           var closeTimer = null;
           // если в настройках передан параметр messages.position = "inline"

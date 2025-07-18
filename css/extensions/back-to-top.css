@@ -1,0 +1,19 @@
+#back-to-top {
+  display: none;
+  position: fixed;
+  bottom: 5rem;
+  right: 6%;
+  z-index: 100;
+  cursor: pointer;
+  background: #fff;
+  border-radius: 50px;
+  border: 0.5rem solid #213A6E85; }
+  #back-to-top .icon {
+    color: #213A6E;
+    line-height: 0;
+    margin: -1px; }
+  @media only screen and (min-width: 768px) {
+    #back-to-top .icon {
+      font-size: 36px; } }
+
+/*# sourceMappingURL=back-to-top.css.map */

@@ -13,7 +13,7 @@
    */
   Drupal.behaviors.backToTop = {
     attach(context) {
-      once('base9-backtotop', '[data-drupal-selector="back-to-top"]', context).forEach(
+      once('back-to-top-once', '[data-drupal-selector="back-to-top"]', context).forEach(
         (element) => {
           $(window).scroll(function () {
             if ($(this).scrollTop() > 400) {

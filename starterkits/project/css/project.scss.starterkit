@@ -1,6 +1,6 @@
-@import "../../base9/css/supplement/variables";                                 // переменные Базовой темы
+@import "../../base9/css/supplies/variables";                                   // переменные Базовой темы
 @import "variables";                                                            // переменные Текущей темы
-@import "../../base9/css/supplement/styles";                                    // стили Базовой темы
+@import "../../base9/css/supplies/styles";                                      // стили Базовой темы
 
 @import "base";                                                                 // общие
 @import "blocks";                                                               // блоки

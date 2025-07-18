@@ -1,8 +1,7 @@
-@import "variables"; // продублировано из styles.scss, чтобы переменные не подсвечивались
+@import "../supplies/variables";                                                                     // продублировано из styles.scss, чтобы переменные не подсвечивались
 
 // --- Разметка страницы в корпоративном стиле ---------------------------------
 .layout-kccc {
-
   .page-header {
     box-shadow: none;
     position: absolute; top: 45px; left: 0; right: 0; z-index: 10;
@@ -19,7 +18,7 @@
         content: "";
         display: block;
         flex: 1;
-        margin-right: -1px; // закрыть прозрачную полосу на макбуке
+        margin-right: -1px;                                                                           // закрыть прозрачную полосу на макбуке
       }
       &:after {
         background: rgba(27, 30, 40, 0.58);
@@ -43,7 +42,7 @@
       background-color: $brand-color;
       color: #fff; line-height: 1; text-align: center;
       padding: 15px;
-      height: 100%; width: 270px;                     // определяет ширину брендовой части меню
+      height: 100%; width: 270px;                                                                     // определяет ширину брендовой части меню
 
       a { color: inherit; }
       &__brand { flex: 1 0 auto; }
