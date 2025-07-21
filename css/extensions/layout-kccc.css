@@ -113,7 +113,7 @@
   .layout-kccc .page-banner .container {
     display: flex;
     align-items: center; }
-  .layout-kccc .page-banner .screen-width {
+  .layout-kccc .page-banner .screen-wide {
     height: 200px; }
   .layout-kccc .page-banner .image {
     position: absolute;
@@ -140,7 +140,7 @@
   @media only screen and (min-width: 1024px) {
     .layout-kccc .page-banner {
       margin-bottom: 3rem; }
-      .layout-kccc .page-banner .screen-width {
+      .layout-kccc .page-banner .screen-wide {
         height: 750px; }
       .layout-kccc .page-banner .banner-title-wrapper {
         padding-bottom: 4rem; }

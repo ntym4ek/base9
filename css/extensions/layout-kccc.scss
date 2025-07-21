@@ -122,7 +122,7 @@
     margin-bottom: $block-offset-xs;
 
     .container { display: flex; align-items: center; }
-    .screen-width { height: 200px; }
+    .screen-wide { height: 200px; }
     .image {
       position: absolute; z-index: -1;
     }
@@ -142,7 +142,7 @@
 
     @media #{$tablet} {
       margin-bottom: $block-offset-xl;
-      .screen-width { height: 750px; }
+      .screen-wide { height: 750px; }
       .banner-title-wrapper { padding-bottom: 4rem; }
       .banner-title {
         font-size: 56px;

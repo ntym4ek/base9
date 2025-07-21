@@ -1,6 +1,6 @@
 
 // растянуть блок на всю ширину экрана за рамки родителя
-@mixin screen-width() {
+@mixin screen-wide() {
   position: relative;
   margin-left: calc(-50vw + 50%);
   margin-right: calc(-50vw + 50%);

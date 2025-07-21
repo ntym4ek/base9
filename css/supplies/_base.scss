@@ -1,4 +1,4 @@
-@import "variables"; // продублировано из styles.scss, чтобы переменные не подсвечивались
+@import "variables";                                                            // продублировано из styles.scss, чтобы переменные не подсвечивались
 
 @import url($font-url);
 
@@ -48,8 +48,8 @@ h6, .h6 { font-size: $font-size-h6; font-weight: 700; }
 h1, h2, h3 { margin: 2rem 0 1rem; }
 h4, h5, h6 { margin: 1rem 0; }
 
-.screen-width {
-  @include screen-width();
+.screen-wide {
+  @include screen-wide();
   overflow: hidden;
 }
 

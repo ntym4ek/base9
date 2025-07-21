@@ -77,6 +77,14 @@ back-to-top:
     - core/drupal
     - core/once
 
+swiper-thumbs:
+  version: VERSION
+  js:
+    js/swiper-thumbs.js: {}
+  dependencies:
+    - core/drupal
+    - core/once
+
 layout-kccc:
   version: VERSION
   css:
