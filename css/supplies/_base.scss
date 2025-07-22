@@ -15,8 +15,10 @@ html {
 html * {
   box-sizing: border-box;
   outline: 0 !important;
-  scrollbar-width: thin;
   scrollbar-color: $brand-color #f1f1f1;
+  // Убрать скролбар.
+  // При расчёте margin для класса screen-wide scrollbar не учитывается и блок с классом оказывается шире экрана.
+  scrollbar-width: none;
 }
 
 a { text-decoration: none; }
