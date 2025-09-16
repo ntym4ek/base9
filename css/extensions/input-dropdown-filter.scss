@@ -1,0 +1,16 @@
+.input-dropdown-filter {
+  position: relative;
+
+  .input-dropdown-menu {
+    background-color: #fff;
+    margin: 0; padding: 0;
+    max-height: 150px; width: 100%;
+    overflow-y: scroll;
+    position: absolute; top: 100%; left: 0; right: 0; z-index: 1;
+
+    .input-dropdown-item {
+      cursor: pointer;
+      list-style: none;
+    }
+  }
+}
