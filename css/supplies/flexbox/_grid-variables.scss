@@ -6,7 +6,13 @@ $sm-max:                  767px !default; // Set sm breakpoint's max width
 $md-max:                  1023px !default; // Set md breakpoint's max width
 $lg-max:                  1365px !default; // Set lg breakpoint's max width
 
-$gutter:                  1rem !default; // Set gutter size
+// горизонтальные отступы
+$gutter:                  1rem !default;
+$gutter-xs:               1rem !default;
+$gutter-sm:               1rem !default;
+$gutter-md:               1rem !default;
+$gutter-lg:               1rem !default;
+$gutter-xl:               1rem !default;
 
 $content-well-max-width:  1320px !default; // Set the max-width of the content well
 
@@ -40,9 +46,3 @@ $phone-only:              $breakpoint-xs-only;
 $smart-only:              $breakpoint-sm-only;
 $pad-only:                $breakpoint-md-only;
 $tablet-only:             $breakpoint-lg-only;
-
-$page-gutter-xs:          $gutter*2!default;
-$page-gutter-sm:          $gutter*2!default;
-$page-gutter-md:          $gutter*2!default;
-$page-gutter-lg:          $gutter*2!default;
-$page-gutter-xl:          $gutter!default;

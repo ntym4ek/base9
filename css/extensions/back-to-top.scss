@@ -10,7 +10,7 @@
   border-radius: 50px;
   border: .5rem solid #{$brand-primary + '85'};
   .icon {
-    color: $brand-color; line-height: 0;
+    color: $brand-primary; line-height: 0;
     margin: -1px;                                                               // чтобы не вылазили щели
   }
 

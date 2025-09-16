@@ -6,7 +6,7 @@
 
 (($, Drupal) => {
 
-  $.fn.bsDropDownFilter = function(options) {
+  $.fn.bsDropDownFilter = function() {
 
       var $wrapper, $menu, $input, $droplist, $diacritics;
       $wrapper = $(this).parent();
@@ -42,7 +42,7 @@
 
       $input.data('dropdownList', $menu);
       $input.off('click.inputDropdownFilter');
-      $input.on('click.inputDropdownFilter', function(e) {
+      $input.on('click.inputDropdownFilter', function() {
           $menu.show();
         });
       $input.off('keyup.inputDropdownFilter');

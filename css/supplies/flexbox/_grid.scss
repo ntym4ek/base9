@@ -2,8 +2,45 @@
 // No gutters
 // No text alignment with justified container classes (center-xs, for example)
 
-.row {
-  @include row();
+.container,
+.container-fluid {
+  padding: 0 $gutter-xs;
+  width: 100%;
+
+  &.full-height { height: 100%; }
+
+  @media #{$smart}  { padding: 0 $gutter-sm; }
+  @media #{$pad}    { padding: 0 $gutter-md; }
+  @media #{$tablet} {
+    padding: 0 $gutter-lg;
+    margin: 0 auto;
+  }
+  @media #{$laptop} { padding: 0 $gutter-xl; }
+}
+
+.container {
+  .row  {
+                        @include row("false", $gutter-xs);
+    @media #{$smart}  { @include row("false", $gutter-sm); }
+    @media #{$pad}    { @include row("false", $gutter-md); }
+    @media #{$tablet} { @include row("false", $gutter-lg); }
+    @media #{$laptop} { @include row("false", $gutter-xl); }
+  }
+
+  .row {
+    @media #{$tablet} { max-width: $content-well-max-width; }
+  }
+}
+
+.container-fluid {
+  .row  {
+                        @include row("true", $gutter-xs);
+    @media #{$smart}  { @include row("true", $gutter-sm); }
+    @media #{$pad}    { @include row("true", $gutter-md); }
+    @media #{$tablet} { @include row("true", $gutter-lg); }
+    @media #{$laptop} { @include row("true", $gutter-xl); }
+  }
+
 }
 
 .row.reverse {
@@ -64,26 +101,26 @@
 }
 
 // Mixin to run inside of for loop - creates col/breakpoint classes * Not for developer use *
-@mixin col-factory($thisPrefix) {
+@mixin col-factory($thisPrefix, $gt: $gutter) {
   // автоматическая ширина
   .col-#{$thisPrefix} {
     flex-grow: 0;
     flex-basis: auto;
     max-width: 100%;
-    padding: 0 $gutter;
+    padding: 0 $gt;
   }
   // заполняет свободное пространство
   .col-#{$thisPrefix}-fill {
     flex-grow: 1;
     flex-basis: 0;
     max-width: 100%;
-    padding: 0 $gutter;
+    padding: 0 $gt;
   }
   @for $i from 1 through $grid-columns {
     .col-#{$thisPrefix}-#{$i} {
       flex-basis: 100% / $grid-columns * $i;
       max-width: 100% / $grid-columns * $i;
-      padding: 0 $gutter;
+      padding: 0 $gt;
     }
   }
   @for $i from 0 through $grid-columns {
@@ -126,28 +163,24 @@
 @for $i from 1 through length($breakpoint-up-prefixes) {
   $thisPrefix: nth($breakpoint-up-prefixes, $i);
   @if $thisPrefix == "xs" {
-    @include col-factory($thisPrefix);
+    @include col-factory($thisPrefix, $gutter-xs);
   } @else if $thisPrefix == "sm" {
     @media #{$breakpoint-sm-up} {
-      @include col-factory($thisPrefix);
+      @include col-factory($thisPrefix, $gutter-sm);
     }
   } @else if $thisPrefix == "md" {
     @media #{$breakpoint-md-up} {
-      @include col-factory($thisPrefix);
+      @include col-factory($thisPrefix, $gutter-md);
     }
   } @else if $thisPrefix == "lg" {
     @media #{$breakpoint-lg-up} {
-      @include col-factory($thisPrefix);
+      @include col-factory($thisPrefix, $gutter-lg);
     }
   } @else if $thisPrefix == "xl" {
     @media #{$breakpoint-xl-up} {
-      @include col-factory($thisPrefix);
+      @include col-factory($thisPrefix, $gutter-xl);
     }
   }
-}
-
-.col-gutter-lr {
-  padding: 0 $gutter;
 }
 
 // для вывода блоков без промежутков
@@ -162,18 +195,3 @@
   flex-wrap: nowrap;
 }
 
-.container {
-  padding: 0 $page-gutter-xs;
-  width: 100%;
-
-  &.full-height { height: 100%; }
-
-  @media #{$smart}  { padding: 0 $page-gutter-sm; }
-  @media #{$pad}    { padding: 0 $page-gutter-md; }
-  @media #{$tablet} {
-    padding: 0 $page-gutter-lg;
-    max-width: $content-well-max-width;
-    margin: 0 auto;
-  }
-  @media #{$laptop} { padding: 0 $page-gutter-xl; }
-}

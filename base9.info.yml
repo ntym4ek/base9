@@ -5,7 +5,6 @@ version: 1.0.0
 libraries:
   - base9/base
   - base9/messages
-  - base9/iconfont
   - core/normalize
 libraries-extend:
   user/drupal.user:

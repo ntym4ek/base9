@@ -3,8 +3,10 @@
 @import url($font-url);
 
 html {
-  height: 100%;
   font-size: 12px;
+  height: 100%;
+  overflow-y: scroll;
+
   @media #{$smart}    { font-size: 14px; }
   @media #{$pad}      { font-size: 16px; }
   @media #{$tablet}   { font-size: 17px; }
@@ -16,9 +18,6 @@ html * {
   box-sizing: border-box;
   outline: 0 !important;
   scrollbar-color: $brand-color #f1f1f1;
-  // Убрать скролбар.
-  // При расчёте margin для класса screen-wide scrollbar не учитывается и блок с классом оказывается шире экрана.
-  scrollbar-width: none;
 }
 
 a { text-decoration: none; }
@@ -27,7 +26,6 @@ body {
   background-color: $page-bkg;
   color: $text-color; line-height: 1.22; font-family: $font-name, Helvetica, Arial, sans-serif;
   height: 100%; min-height: 100%;
-  overflow-y: scroll;
   position: relative;
 }
 

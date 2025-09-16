@@ -1,23 +1,9 @@
 @import "variables";                                                            // продублировано из styles.scss, чтобы переменные не подсвечивались
 
 
-.btn {
-  //background-image: none;                                                       // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
-  //border: 1px solid transparent;
-  //cursor: pointer;
-  //display: inline-block;
-  //font-weight: $btn-font-weight;
-  //margin-bottom: 0;                                                             // For input.btn
-  //text-align: center;
-  //touch-action: manipulation;
-  //transition: all 200ms;
-  //user-select: none;
-  //position: relative;                                                           // для вставляемого внутрь ajax throbber
-  //vertical-align: middle;
-  //white-space: nowrap;
-
+.button {
   @include btn();
-  @include button-size($padding-base-vertical, $padding-base-horizontal, $input-font-size-base, $line-height-base, $btn-border-radius-base, $input-height-base);
+  @include button-size($btn-padding-base-v, $btn-padding-base-h, $btn-font-size-base, $line-height-base, $btn-border-radius-base, $input-height-base);
 
   &:hover,
   &:focus,
@@ -34,7 +20,7 @@
 
   &.disabled,
   &[disabled],
-  &.btn-disabled,
+  &.button--disabled,
   fieldset[disabled] & {
     cursor: not-allowed;
     opacity: $input-disabled-opacity;
@@ -44,45 +30,42 @@
 
   &:not(:last-child) { margin-right: 1rem; }                                    // отбивка для рядом стоящих кнопок
 
-  &.btn-static {}                                                               // для кнопок, не меняющих состояние при наведении
+  &.button--outline.button--default   { @include button-variant($btn-default-color, transparent, $btn-default-color, $btn-default-h-color, transparent, $btn-default-h-color); }
+  &.button--outline.button--white     { @include button-variant(#fff, transparent, #fff); }
+  &.button--outline.button--brand,
+  &.button--outline.button--primary   { @include button-variant($btn-primary-bg, transparent, $btn-primary-border, $btn-primary-h-bg, transparent, $btn-primary-h-border); }
+  &.button--outline.button--danger    { @include button-variant($btn-danger-bg, transparent, $btn-danger-border, $btn-danger-h-bg, transparent, $btn-danger-h-border); }
+  &.button--outline.button--warning   { @include button-variant($btn-warning-bg, transparent, $btn-warning-border, $btn-warning-h-bg, transparent, $btn-warning-h-border); }
 
-  &.btn-outline.btn-default   { @include button-variant($btn-default-color, transparent, $btn-default-color, $btn-default-h-color, transparent, $btn-default-h-color); }
-  &.btn-outline.btn-white     { @include button-variant(#fff, transparent, #fff); }
-  &.btn-outline.btn-brand,
-  &.btn-outline.btn-primary   { @include button-variant($btn-primary-bg, transparent, $btn-primary-border, $btn-primary-h-bg, transparent, $btn-primary-h-border); }
-  &.btn-outline.btn-danger    { @include button-variant($btn-danger-bg, transparent, $btn-danger-border, $btn-danger-h-bg, transparent, $btn-danger-h-border); }
-  &.btn-outline.btn-warning   { @include button-variant($btn-warning-bg, transparent, $btn-warning-border, $btn-warning-h-bg, transparent, $btn-warning-h-border); }
-
-  &.btn-badge {
+  &.button--badge {
     font-size: .5rem;
     height: 25px;
   }
 
   // кнопка-иконка, без рамок и фона
-  &.btn-icon {
+  &.button--icon {
     border: none;
     background: none;
   }
   // кнопка с текстом и иконкой
-  &.btn-with-icon {
-    i { position: absolute; left: $padding-base-horizontal; top: $padding-base-vertical; }
-    &.btn-sm i,
-    &.btn-small i { left: $padding-small-horizontal; top: $padding-small-vertical; }
-    &.btn-lg i,
-    &.btn-large i { left: $padding-large-horizontal; top: $padding-large-vertical; }
+  &.button--with-icon {
+    i { position: absolute; left: $input-padding-base-h; top: $input-padding-base-v; }
+    &.button--sm i,
+    &.button--small i { left: $input-padding-small-h; top: $input-padding-small-v; }
+    &.button--lg i,
+    &.button--large i { left: $input-padding-large-h; top: $input-padding-large-v; }
   }
-  &.btn-with-icon-right .icon { margin-left: .8em; }
-  &.btn-with-icon-left .icon { margin-right: .8em; }
+  &.button--with-icon-right .icon { margin-left: .8em; }
+  &.button--with-icon-left .icon { margin-right: .8em; }
 
-  &.btn-wide { padding-left: 1em*3; padding-right: 1em*3; }
-  &.btn-full-wide,  // уст.
-  &.btn-full-width { width: 100%; }
-  &.btn-full-height {
+  &.button--wide { padding-left: 1em*3; padding-right: 1em*3; }
+  &.button--full-width { width: 100%; }
+  &.button--full-height {
     display: inline-flex; justify-content: center; align-items: center;
     height: 100%;
   }
 
-  &.btn-underline {
+  &.button--underline {
     flex-direction: column;
     &:after {
       content: ' ';
@@ -97,12 +80,11 @@
     }
   }
 
-  &.btn-uppercase {
-    font-weight: 500;
+  &.button--uppercase {
     text-transform: uppercase;
   }
 
-  &.btn-file {
+  &.button--file {
     position: relative;
     overflow: hidden;
     justify-content: center;
@@ -121,35 +103,35 @@
   }
 }
 
-.btn-default {
+.button--default {
   @include button-variant($btn-default-color, $btn-default-bg, $btn-default-border, $btn-default-h-color, $btn-default-h-bg, $btn-default-h-border);
 }
-.btn-white {
+.button--white {
   @include button-variant($btn-default-color, #fff, #fff);
 }
-.btn-brand,
-.btn-primary {
+.button--brand,
+.button--primary {
   @include button-variant($btn-primary-color, $btn-primary-bg, $btn-primary-border, $btn-primary-h-color, $btn-primary-h-bg, $btn-primary-h-border);
 }
 // Success appears as green
-.btn-success {
+.button--success {
   @include button-variant($btn-success-color, $btn-success-bg, $btn-success-border, $btn-success-h-color, $btn-success-h-bg, $btn-success-h-border);
 }
 // Info appears as blue-green
-.btn-info {
+.button--info {
   @include button-variant($btn-info-color, $btn-info-bg, $btn-info-border, $btn-info-h-color, $btn-info-h-bg, $btn-info-h-border);
 }
 // Warning appears as orange
-.btn-warning {
+.button--warning {
   @include button-variant($btn-warning-color, $btn-warning-bg, $btn-warning-border, $btn-warning-h-color, $btn-warning-h-bg, $btn-warning-h-border);
 }
 // Danger and error appear as red
-.btn-danger {
+.button--danger {
   @include button-variant($btn-danger-color, $btn-danger-bg, $btn-danger-border, $btn-danger-h-color, $btn-danger-h-bg, $btn-danger-h-border);
 }
 
 // Make a button look and behave like a link
-.btn-link {
+.button--link {
   font-weight: 400;
   color: $link-color;
   border-radius: 0;
@@ -188,24 +170,24 @@
 // Button Sizes
 // --------------------------------------------------
 
-.btn-large,
-.btn-lg {
+.button--large,
+.button--lg {
   // line-height: ensure even-numbered height of button next to large input
-  @include button-size($padding-large-vertical, $padding-large-horizontal, $input-font-size-large, $line-height-large, $btn-border-radius-large, $input-height-large);
+  @include button-size($btn-padding-large-v, $btn-padding-large-h, $btn-font-size-large, $line-height-large, $btn-border-radius-large, $input-height-large);
 }
-.btn-small,
-.btn-sm {
+.button--small,
+.button--sm {
   // line-height: ensure proper height of button next to small input
-  @include button-size($padding-small-vertical, $padding-small-horizontal, $input-font-size-small, $line-height-small, $btn-border-radius-small, $input-height-small);
+  @include button-size($btn-padding-small-v, $btn-padding-small-h, $btn-font-size-small, $line-height-small, $btn-border-radius-small, $input-height-small);
 }
-.btn-xs {
-  @include button-size($padding-xs-vertical, $padding-xs-horizontal, $input-font-size-small, $line-height-small, $btn-border-radius-small, $input-height-small*.89);
+.button--xs {
+  @include button-size($padding-xs-vertical, $padding-xs-horizontal, $btn-font-size-small, $line-height-small, $btn-border-radius-small, $input-height-small*.89);
 }
 
 .badge {
   position: absolute; top: -10px; right: -10px;
-  background: $brand-color; border-radius: 999px;
-  color: #fff; font-weight: 700;
-  padding: .25em .6em;
+  background: $brand-color; border-radius: 50px;
+  color: #fff; font-size: .6em; line-height: 1;
+  padding: .2em .6em;
 }
 

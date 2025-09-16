@@ -1,180 +1,116 @@
 @import "variables";                                                            // продублировано из styles.scss, чтобы переменные не подсвечивались
 
-label,
-.label,
-.field .field-label {
-  color: $label-color; font-weight: $label-weight;
-  margin-bottom: $label-margin;
-}
+.form-item {
+  position: relative;
 
-
-.form-item,
-.field-type-text,
-.field-type-text-long,
-.field-type-text-with-summary
-{
-  margin-bottom: $form-bottom-margin;
-  max-width: 100%;
-  label,
-  .label {
-    .field-edit-link a {
-      color: $gray-dark;
-      font-weight: 300;
-    }
-  }
-  .form-text,
-  .form-textarea,
-  .form-select,
-  .form-tel,
-  .form-email {
-    padding: $padding-base-vertical $padding-base-horizontal;
-    color: $input-color; font-size: $input-font-size-base; line-height: $line-height-base;
-    background-color: $input-bg-color; background-image: none; border: $input-border-width solid $input-border-color; border-radius: $input-border-radius;
-    transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
-    max-width: 100%; width: 100%;
-    &[readonly],
-    &.form-disabled {
-      background-color: $gray-lightest;
-      cursor: not-allowed;
-      // pointer-events: none;                                                  свойство удалено, так как из-за него не отображается значение свойства cursor
-    }
-    &:focus { border-color: $input-focus-color; }
+  label {
+    color: $label-color; font-weight: $label-weight;
+    display: inline-block;
+    &:not(.option) { margin-bottom: $label-margin; }
   }
 
-  &.form-disabled {
-    .form-text,
-    .form-textarea,
-    .form-select,
-    .form-tel,
-    .form-email  {
-      background-color: $input-bg-disabled;
-      cursor: not-allowed;
-      // pointer-events: none;                                                  свойство удалено, так как из-за него не отображается значение свойства cursor
-      opacity: $input-disabled-opacity;
-    }
+  input[type=text],
+  input[type=email],
+  input[type=tel],
+  input[type=date],
+  input[type=number],
+  input[type=password],
+  select,
+  textarea {
+    border: $input-border-width solid $input-border-color;
+    border-radius: $input-border-radius;
+    display: block;
+    font-size: $input-font-size-base; line-height: $line-height-base;
+    padding: $input-padding-base-v $input-padding-base-h;
+    width: 100%; max-width: 100%;
+    &.error { border-color: $brand-danger; }
   }
 
-  .form-button-disabled {
-    opacity: $input-disabled-opacity;
-    cursor: not-allowed;
-    // pointer-events: none;                                                    свойство удалено, так как из-за него не отображается значение свойства cursor
-  }
-
-  .form-text,
-  .form-select:not([multiple="multiple"]) {
+  input[type=text],
+  input[type=email],
+  input[type=tel],
+  input[type=date],
+  input[type=number],
+  input[type=password],
+  select {
     height: $input-height-base;
   }
-  .description {
-    color: $text-muted; font-size: .8em; white-space: initial;
-    padding-top: 0.2em;
-    strong { font-weight: 400; }
-  }
-  .form-radios {
-    input { margin-top: 0; }
-  }
 
-  .form-item--error-message {
-    color: $brand-danger; font-size: $font-size-small; font-weight: 400;
-    padding: 0 13px;
-    strong { font-weight: inherit; }
-    &:before { display: none; }
-  }
+  .description { color: $text-muted; margin-top: 3px; }
 }
 
-.form-item:not(.form-type-checkbox) {
-  > .ajax-wrapper { max-width: 100%; width: 100%; }
+.form-type-radio {
+  position: relative;
+
+  input {
+    appearance: none;
+    width: 1rem; height: 1rem;
+    border: 1px solid #dee2e6; border-radius: 50%;
+    background-color: #fff; background-repeat: no-repeat; background-position: center; background-size: contain;
+    cursor: pointer;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    margin: 0 11px -2px 0;
+    &:checked {
+      background-color: #fff;
+      border-color: $brand-cocoa;
+      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='1.8' fill='%23B2A8A3'/%3e%3c/svg%3e");
+    }
+    &:hover:not(:disabled) { border-color: $brand-cocoa; }
+    &:disabled {
+      filter: none;
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+    &:disabled ~ label {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+    &.error { border-color: $brand-danger; }
+  }
 }
 
 .form-type-checkbox {
-  label { color: $input-color; }
-}
+  position: relative;
 
-fieldset .fieldset-legend {
-  color: $label-color; font-weight: $label-weight;
-  margin-bottom: $label-margin;
-}
-
-.field-type-text-with-summary,
-.field-type-text-long {
-  .text-summary-wrapper .form-item {
-    margin-bottom: 1em;
-  }
-  .description { margin-top: 0; }
-  .filter-wrapper {
-    padding: 1em 0;
-  }
-  .text-format-wrapper fieldset {
-    font-size: .8em;
-    margin-bottom: 0;
-  }
-}
-
-//.form-actions { margin-top: 1em; }
-
-.filter-wrapper {
-  opacity: .3;
-  margin-bottom: 1rem;
-  .form-item label { display: inline-block; }
-}
-.form-managed-file {
-  //display: flex;                                                              // открывается не на всю ширину
-  .image-preview {
-    flex: 0 0 120px;
-    padding-bottom: 0;
-  }
-  .image-widget-data,
-  .file-widget-data { float: initial; }
-  .image-widget-data .form-group { display: none; }
-  .form-item { margin-bottom: 0; }                                              // в табличной части убирает лишний отступ
-
-  display: flex; flex-wrap: wrap;
-  .image-widget-data { flex: 1 1 250px; }
-  .image-action { flex: 100%; }
-  .image-etc { flex: 0 0 100%; }
-}
-.form-items-inline {
-  display: flex;
-  margin-bottom: 1rem;
-  .form-item { margin-bottom: 0; }
-}
-.input-group {
-  display: flex;
-  .form-item {
-    margin-bottom: 0;
-    input { border-top-right-radius: initial; border-bottom-right-radius: initial; }
-  }
-  .form-item:not(:first-child) .form-text,
-  .form-text { flex: auto; }
-  .form-text:not(:first-child) {
-    border-left: none;
-  }
-  .form-item:not(:last-child) .form-text,
-  .form-text:not(:last-child) {
-    border-right: none;
-  }
-  .btn {
-    display: flex; align-items: center;
-    padding: 0 .5rem;
-    border-top-left-radius: initial; border-bottom-left-radius: initial;
+  input {
+    appearance: none;
+    width: 1rem; height: 1rem;
+    border: 1px solid $brand-cocoa;
+    background-color: #fff;
+    cursor: pointer;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    margin: 0 11px -2px 0;
+    &:checked {
+      background-color: #fff;
+      border-color: $brand-cocoa;
+      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23B2A8A3' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m6 10 3 3 6-6'/%3e%3c/svg%3e");
+    }
+    &:active { filter: brightness(90%); }
+    &:hover:not(:disabled) { border-color: $brand-cocoa; }
+    &:disabled {
+      filter: none;
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+    &:disabled ~ .checkbox-label {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+    &.error { border-color: $brand-danger; }
   }
 }
 
-.user-auth-form-wrapper {
-  max-width: 450px;
-  margin: 0 auto 3rem;
-  display: flex; flex-wrap: wrap;
-  .user-links {
-    color: $text-muted; font-size: $font-size-small;
-    margin-bottom: 1rem;
-  }
-  > h1 { margin-top: 0; }
-  > h1,
-  > form {
-    line-height: 1.1;
-    width: 100%
+.field--type-datetime {
+  margin-top: 1rem;
+
+  .container-inline {
+    display: block;
   }
 
-  @media #{$tablet} {
-    margin: 5vh auto 0;
+  h4 {
+    display: inline-block;
+    font-family: inherit; text-transform: initial;
+    margin-bottom: $label-margin;
   }
+  .form-item { margin-top: 0; margin-bottom: 0; }
 }

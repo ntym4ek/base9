@@ -2,26 +2,26 @@
 
 // colors
 //
-$gray-darkest:      #606060!default;
-$gray-dark:         #7D7C7C!default;
-$gray:              #aaa!default;
-$gray-light:        #ccc!default;
-$gray-lightest:     #E9E9E9!default;
+$gray-darkest:            #606060!default;
+$gray-dark:               #7D7C7C!default;
+$gray:                    #aaa!default;
+$gray-light:              #ccc!default;
+$gray-lightest:           #E9E9E9!default;
 
-$divider-clr:       #7D7C7C!default;
-$well-bkg-clr:      #F6F5F3!default;
+$divider-clr:             #7D7C7C!default;
+$well-bkg-clr:            #F6F5F3!default;
 
-$brand-blue:        #213A6E!default;
-$brand-cyan:        #5bc0de!default;
-$brand-green:       #36AA3D!default;
-$brand-orange:      #f08200!default;
-$brand-red:         #CC1335!default;
+$brand-blue:              #213A6E!default;
+$brand-cyan:              #5bc0de!default;
+$brand-green:             #36AA3D!default;
+$brand-orange:            #f08200!default;
+$brand-red:               #CC1335!default;
 
-$brand-primary:     #213A6E!default; // задавать нужно прямо, а не через переменную цвета, тк в подтеме primary может не быть этого цвета
-$brand-info:        #5bc0de!default;
-$brand-success:     #36AA3D!default;
-$brand-warning:     #f08200!default;
-$brand-danger:      #CC1335!default;
+$brand-primary:           #213A6E!default; // задавать нужно прямо, а не через переменную цвета, тк в подтеме primary может не быть этого цвета
+$brand-info:              #5bc0de!default;
+$brand-success:           #36AA3D!default;
+$brand-warning:           #f08200!default;
+$brand-danger:            #CC1335!default;
 
 $brand-color:             #213A6E!default;
 
@@ -123,32 +123,45 @@ $input-bg-disabled:         $gray-light !default;
 $input-disabled-opacity:    .5!default;
 $input-focus-color:         #aaa!default;
 
-$padding-base-vertical:     6px !default;
-$padding-base-horizontal:   12px !default;
+$input-padding-base-v:      6px !default;
+$input-padding-base-h:      12px !default;
 
-$padding-large-vertical:    10px !default;
-$padding-large-horizontal:  16px !default;
+$input-padding-large-v:     10px !default;
+$input-padding-large-h:     16px !default;
 
-$padding-small-vertical:    5px !default;
-$padding-small-horizontal:  10px !default;
+$input-padding-small-v:     5px !default;
+$input-padding-small-h:     10px !default;
 
 $padding-xs-vertical:       4px !default;
 $padding-xs-horizontal:     10px !default;
 
-$line-height-large:         1.3 !default; // extra decimals for Win 8.1 Chrome
+$line-height-large:         1.3 !default;
 $line-height-small:         1.1 !default;
 
-$border-radius-base:        4px !default;
-$border-radius-large:       6px !default;
-$border-radius-small:       3px !default;
+$border-radius-base:             4px !default;
+$border-radius-large:            6px !default;
+$border-radius-small:            3px !default;
 
-$input-height-base:              ($line-height-computed + ($padding-base-vertical * 2) + 2) !default;
-$input-height-large:             (floor(($input-font-size-large * $line-height-large)) + ($padding-large-vertical * 2) + 2) !default;
-$input-height-small:             (floor(($input-font-size-small * $line-height-small)) + ($padding-small-vertical * 2) + 2) !default;
+$input-height-base:              ($line-height-computed + ($input-padding-base-v * 2) + 4) !default;
+$input-height-large:             (floor(($input-font-size-large * $line-height-large)) + ($input-padding-large-v * 2) + 4) !default;
+$input-height-small:             (floor(($input-font-size-small * $line-height-small)) + ($input-padding-small-v * 2) + 4) !default;
 
 
 // кнопки
-$btn-font-weight:                normal !default;
+$btn-font-size-base:            16px !default;
+$btn-font-size-small:           14px !default;
+$btn-font-size-large:           22px !default;
+$btn-font-weight:               normal !default;
+
+$btn-padding-base-v:            6px !default;
+$btn-padding-base-h:            24px !default;
+
+$btn-padding-large-v:           10px !default;
+$btn-padding-large-h:           32px !default;
+
+$btn-padding-small-v:           5px !default;
+$btn-padding-small-h:           20px !default;
+
 
 $btn-default-color:              #333 !default;
 $btn-default-bg:                 #fff !default;
@@ -195,9 +208,9 @@ $btn-danger-h-border:            darken($btn-danger-border, 10%) !default;
 $btn-link-disabled-color:        $gray-light !default;
 
 // Allows for customizing button radius independently from global border radius
-$btn-border-radius-base:         $border-radius-base !default;
-$btn-border-radius-large:        $border-radius-large !default;
-$btn-border-radius-small:        $border-radius-small !default;
+$btn-border-radius-base:         4px !default;
+$btn-border-radius-large:        6px !default;
+$btn-border-radius-small:        3px !default;
 
 // размер отступов между блоками на странице
 $block-offset-xs:                 2rem!default;
