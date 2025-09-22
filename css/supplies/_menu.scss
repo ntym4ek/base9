@@ -55,7 +55,7 @@ ul.menu {
     visibility: hidden; opacity: 0;
     position: absolute; z-index: 10;
     background-color: $submenu-bkg;
-    border-left: 3px solid $brand-color;
+    border-left: 3px solid $brand-primary;
     min-width: $submenu-min-width;
     padding: .5rem 0;
     transition: all 200ms;

@@ -17,7 +17,7 @@ html {
 html * {
   box-sizing: border-box;
   outline: 0 !important;
-  scrollbar-color: $brand-color #f1f1f1;
+  scrollbar-color: $brand-primary #f1f1f1;
 }
 
 a { text-decoration: none; }
@@ -94,7 +94,7 @@ img {
 //    }
 //    & a:hover,
 //    &.active a {
-//      background: $brand-color;
+//      background: $brand-primary;
 //      border: none;
 //      color: #fff;
 //    }
@@ -216,7 +216,7 @@ img {
 //    margin-bottom: 1rem;
 //    .profile-count {
 //      border-radius: 4px;
-//      background-color: $brand-color;
+//      background-color: $brand-primary;
 //      color: #fff; text-align: center;
 //      margin: 0 1rem 1rem 0; padding: 1rem;
 //      min-width: 100px;

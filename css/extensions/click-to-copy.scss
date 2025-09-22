@@ -13,7 +13,7 @@
     svg {
       display: block;
       stroke: $text-muted;
-      &.click-to-copy-copied { stroke: $brand-color; }
+      &.click-to-copy-copied { stroke: $brand-primary; }
     }
     &:hover {
       opacity: 1; visibility: visible;
