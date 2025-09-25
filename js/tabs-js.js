@@ -23,7 +23,7 @@
    * @type {Drupal~behavior}
    *
    * @prop {Drupal~behaviorAttach} attach
-   * Повесить обработчики клика на элементы с классом tabs__links
+   * Повесить обработчики клика на элементы с классом tabs-js__links
    */
   Drupal.behaviors.tabsJs = {
     attach(context) {
@@ -31,20 +31,20 @@
         (element) => {
 
           // повесить обработчики
-          element.querySelectorAll(".tabs__link").forEach((tabLink) => {
+          element.querySelectorAll(".tabs-js__link").forEach((tabLink) => {
             let id = tabLink.dataset.targetId;
 
             tabLink.addEventListener("click", function() {
               // убрать классы с кнопок и закладок
-              element.querySelectorAll(".tabs__link").forEach((tabLink) => {
-                tabLink.classList.remove("tabs__link--active");
+              element.querySelectorAll(".tabs-js__link").forEach((tabLink) => {
+                tabLink.classList.remove("tabs-js__link--active");
               });
-              element.querySelectorAll(".tabs__content").forEach((tabContent) => {
-                tabContent.classList.remove("tabs__content--visible");
+              element.querySelectorAll(".tabs-js__content").forEach((tabContent) => {
+                tabContent.classList.remove("tabs-js__content--visible");
               });
 
-              tabLink.classList.add("tabs__link--active");
-              element.querySelector('[data-id="' + id + '"]').classList.add("tabs__content--visible");
+              tabLink.classList.add("tabs-js__link--active");
+              element.querySelector('[data-id="' + id + '"]').classList.add("tabs-js__content--visible");
 
               heightAdjust(element);
             }, false);
