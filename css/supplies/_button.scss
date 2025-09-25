@@ -28,8 +28,6 @@
     box-shadow: none;
   }
 
-  &:not(:last-child) { margin-right: 1rem; }                                    // отбивка для рядом стоящих кнопок
-
   &.button--outline.button--default   { @include button-variant($btn-default-color, transparent, $btn-default-color, $btn-default-h-color, transparent, $btn-default-h-color); }
   &.button--outline.button--white     { @include button-variant(#fff, transparent, #fff); }
   &.button--outline.button--brand,

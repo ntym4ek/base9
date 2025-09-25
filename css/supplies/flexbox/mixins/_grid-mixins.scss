@@ -6,9 +6,9 @@
   flex: 1 1 auto; // изначально flex: 0 1 auto, но такой row устанавливался не на всю ширину, если содержимое не имеет нужной ширины
   flex-direction: row;
   flex-wrap: wrap;
-  // // Overrides flexbox's default behavior of making all children equal height
+  // Overrides flexbox's default behavior of making all children equal height
   // align-items: flex-start; // If this was not in place it would require two classes to make a row full of unequal height columns aligned top, middle, bottom
-  @if type-of($content-well-max-width) == number and $content-well-max-width != 0 and $full-width == "false"{
+  @if type-of($content-well-max-width) == number and $content-well-max-width != 0 and $full-width == "false" {
     max-width: $content-well-max-width;
   }
 }
