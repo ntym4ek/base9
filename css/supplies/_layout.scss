@@ -72,6 +72,7 @@
   transition: all 200ms ease-in;
   overflow: hidden;
   position: relative;
+
   .label {
     display: flex; justify-content: center; align-items: center;
 
@@ -106,10 +107,9 @@
 .page-footer {
   background: $footer-bkg;
   color: $footer-text;
-  padding: 2rem 0;
 
-  .container { height: 100%; }
-  .rights { font-size: 1.1rem; text-align: right; }
+  .container,
+  .container-fluid { height: 100%; }
 }
 
 .page-title {

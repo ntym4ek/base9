@@ -106,6 +106,14 @@ tabs-js:
     - core/drupal
     - core/once
 
+modal-ui-widget-remove:
+  version: VERSION
+  js:
+    js/modal-ui-widget-remove.js: {}
+  dependencies:
+    - core/drupal
+    - core/once
+
 layout-kccc:
   version: VERSION
   css:
