@@ -114,6 +114,25 @@ modal-ui-widget-remove:
     - core/drupal
     - core/once
 
+swipe-events:
+  version: VERSION
+  js:
+    js/swipe-events.js: {}
+  dependencies:
+    - core/drupal
+    - core/once
+    - core/drupalSettings
+
+mobile-menu:
+  version: VERSION
+  js:
+    js/mobile-menu.js: {}
+  dependencies:
+    - core/drupal
+    - core/once
+    - core/drupalSettings
+    - base9/swipe-events
+
 layout-kccc:
   version: VERSION
   css:

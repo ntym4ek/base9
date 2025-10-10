@@ -22,12 +22,17 @@ function base9_theme(): array
 }
 
 /**
- * Реализация theme_preprocess_HOOK().
+ * Implements hook_preprocess_html().
  */
-function base9_preprocess_input_dropdown_filter(array &$variables)
+function base9_preprocess_html(&$vars)
 {
-  // для функции темизации подключить скрипт
-  $variables['#attached']['library'][] = 'base9/input-dropdown-filter';
+  // -- настройки темы
+    // сторона расположения меню (умолчанию слева)
+  $vars['attributes']['class'][] = 'page-offside-' . (theme_get_setting('page-offside-position') ?? 'left');
+    // ширина экрана при которой мобильное меню заменяется на десктопное
+  $vars['#attached']['drupalSettings']['theme'] = [
+    'page_offside_hide_width' => theme_get_setting('page-offside-hide-width') ?? '1024',
+  ];
 }
 
 /**
@@ -137,4 +142,13 @@ function base9_preprocess_image_widget(array &$vars): void
   if (isset($data['preview']['#access']) && $data['preview']['#access'] === FALSE) {
     unset($data['preview']);
   }
+}
+
+/**
+ * Реализация theme_preprocess_HOOK().
+ */
+function base9_preprocess_input_dropdown_filter(array &$variables)
+{
+  // для функции темизации подключить скрипт
+  $variables['#attached']['library'][] = 'base9/input-dropdown-filter';
 }

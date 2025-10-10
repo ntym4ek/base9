@@ -14,65 +14,71 @@ ul.menu {
   }
 }
 
-.menu-wrapper {
-  display: flex; justify-content: space-between; align-items: center;
-  height: 100%;
-  .region-primary-menu {
-    display: flex; justify-content: start;
-    flex: 1 1 auto;
-  }
-  .region-secondary-menu {
-    display: flex; justify-content: end;
-    flex: 0 0 auto;
-  }
+.page {
 
-  // верхний уровень меню
-  ul.menu {
-    a {
-      display: inline-block;
-      text-decoration: none;
-      padding: .5rem 1rem;
-      transition: color 150ms;
+  .menu-wrapper {
+    display: flex; justify-content: space-between; align-items: center;
+    height: 100%;
+    .region-primary-menu {
+      display: flex; justify-content: start;
+      flex: 1 1 auto;
     }
-    > li {
-      display: inline-block;
-      position: relative;
-      &:hover > .menu { visibility: visible; opacity: 1; }
-      > a {
-        color: $menu-item-color; white-space: nowrap;
-        &.is-active,
-        &:focus,
-        &.active-trail { color: $menu-item-active-color; }
-        &:hover { color: $menu-item-hover-color; }
-      }
-      > &.first a { padding-left: 0; }  // выровнять первый пункт меню по сетке
+    .region-secondary-menu {
+      display: flex; justify-content: end;
+      flex: 0 0 auto;
     }
 
-  }
-  // выпадающее меню
-  ul.menu .menu {
-    visibility: hidden; opacity: 0;
-    position: absolute; z-index: 10;
-    background-color: $submenu-bkg;
-    min-width: $submenu-min-width;
-    padding: .5rem 0;
-    > li {
-      display: block;
-      padding-left: 1rem; padding-right: 1rem;
+    // верхний уровень меню
+    ul.menu {
       a {
-        color: $submenu-item-color;
-        padding: 0.7rem 0.5rem;
-        width: 100%;
+        display: inline-block;
+        text-decoration: none;
+        padding: .5rem 1rem;
+        transition: color 150ms;
       }
-      &:hover,
-      &:focus {
-        background: $submenu-item-hover-bkg;
-        a { color: $submenu-item-hover-color; }
+      > li {
+        display: inline-block;
+        position: relative;
+        &:hover > .menu { visibility: visible; opacity: 1; }
+        > a {
+          color: $menu-item-color; white-space: nowrap;
+          &.is-active,
+          &:focus,
+          &.active-trail { color: $menu-item-active-color; }
+          &:hover { color: $menu-item-hover-color; }
+        }
+        > &.first a { padding-left: 0; }  // выровнять первый пункт меню по сетке
       }
+
+    }
+    // выпадающее меню
+    ul.menu .menu {
+      visibility: hidden; opacity: 0;
+      position: absolute; z-index: 10;
+      background-color: $submenu-bkg;
+      min-width: $submenu-min-width;
+      padding: .5rem 0;
+      > li {
+        display: block;
+        padding-left: 1rem; padding-right: 1rem;
+        a {
+          color: $submenu-item-color;
+          padding: 0.7rem 0.5rem;
+          width: 100%;
+        }
+        &:hover,
+        &:focus {
+          background: $submenu-item-hover-bkg;
+          a { color: $submenu-item-hover-color; }
+        }
+      }
+
+      .region-primary-menu & { left: 0; }
+      .region-secondary-menu & { right: 0; }
     }
 
-    .region-primary-menu & { left: 0; }
-    .region-secondary-menu & { right: 0; }
   }
 
 }
+
+
