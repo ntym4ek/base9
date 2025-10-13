@@ -5,19 +5,6 @@
   right: 6%;
   z-index: 100;
   cursor: pointer;
-  background: #fff;
-  border-radius: 50px;
-  border: 0.5rem solid #213A6E85;
-}
-#back-to-top .icon {
-  color: #213A6E;
-  line-height: 0;
-  margin: -1px;
-}
-@media only screen and (min-width: 768px) {
-  #back-to-top .icon {
-    font-size: 36px;
-  }
 }
 
-/*# sourceMappingURL=data:application/json;charset=utf-8,%7B%22version%22:3,%22sourceRoot%22:%22%22,%22sources%22:%5B%22back-to-top.scss%22,%22../supplies/_variables.scss%22%5D,%22names%22:%5B%5D,%22mappings%22:%22AAGA;EACE;EACA;EAAiB;EAAc;EAAW;EAC1C;EAEA;EACA;EACA;;AACA;EACE,OCOsB;EDPC;EACvB;;AAGF;EACE;IAAQ%22,%22file%22:%22back-to-top.css%22%7D */
+/*# sourceMappingURL=data:application/json;charset=utf-8,%7B%22version%22:3,%22sourceRoot%22:%22%22,%22sources%22:%5B%22back-to-top.scss%22%5D,%22names%22:%5B%5D,%22mappings%22:%22AAGA;EACE;EACA;EAAiB;EAAc;EAAW;EAC1C%22,%22file%22:%22back-to-top.css%22%7D */

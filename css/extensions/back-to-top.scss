@@ -5,16 +5,4 @@
   display: none;
   position: fixed; bottom: 5rem; right: 6%; z-index: 100;
   cursor: pointer;
-
-  background: #fff;
-  border-radius: 50px;
-  border: .5rem solid #{$brand-primary + '85'};
-  .icon {
-    color: $brand-primary; line-height: 0;
-    margin: -1px;                                                               // чтобы не вылазили щели
-  }
-
-  @media #{$pad} {
-    .icon { font-size: 36px; }
-  }
 }
