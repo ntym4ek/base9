@@ -1,5 +1,4 @@
 #back-to-top {
-  display: none;
   position: fixed;
   bottom: 5rem;
   right: 6%;
@@ -7,4 +6,4 @@
   cursor: pointer;
 }
 
-/*# sourceMappingURL=data:application/json;charset=utf-8,%7B%22version%22:3,%22sourceRoot%22:%22%22,%22sources%22:%5B%22back-to-top.scss%22%5D,%22names%22:%5B%5D,%22mappings%22:%22AAGA;EACE;EACA;EAAiB;EAAc;EAAW;EAC1C%22,%22file%22:%22back-to-top.css%22%7D */
+/*# sourceMappingURL=data:application/json;charset=utf-8,%7B%22version%22:3,%22sourceRoot%22:%22%22,%22sources%22:%5B%22back-to-top.scss%22%5D,%22names%22:%5B%5D,%22mappings%22:%22AAGA;EACE;EAAiB;EAAc;EAAW;EAC1C%22,%22file%22:%22back-to-top.css%22%7D */
