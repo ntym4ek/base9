@@ -43,14 +43,14 @@
 
                   $(".page-offside-left .page, .page-offside-left .page-offside-label").on("swiped-right", (e) => {
                     // если свайп вправо на Свайпере или блоке с классом main-menu-disabled, то не показываем меню
-                    let is_prohibited = $(e.target).closest(".mobile-menu-disabled, .swiper-container").length > 0;
+                    let is_prohibited = $(e.target).closest(".page-offside-disabled, .swiper-container").length > 0;
                     if (!is_prohibited) {
                       showMobileNav();
                     }
                   });
                   $(".page-offside-right .page, .page-offside-right .page-offside-label").on("swiped-left", (e) => {
                     // если свайп вправо на Свайпере, то не показываем меню
-                    let is_prohibited = $(e.target).closest(".mobile-menu-disabled, .swiper-container").length > 0;
+                    let is_prohibited = $(e.target).closest(".page-offside-disabled, .swiper-container").length > 0;
                     if (!is_prohibited) {
                       showMobileNav();
                     }
