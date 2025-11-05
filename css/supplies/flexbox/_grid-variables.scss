@@ -1,48 +1,55 @@
 // Grid
 $grid-columns:            12 !default; // Set number of columns in the grid
 
-$xs-max:                  359px !default; // Set xs breakpoint's max width
-$sm-max:                  767px !default; // Set sm breakpoint's max width
-$md-max:                  1023px !default; // Set md breakpoint's max width
-$lg-max:                  1365px !default; // Set lg breakpoint's max width
+$sm-max:                  767px !default;  // Максимальное разрешение смартфона
+$pd-max:                  1023px !default; // Максимальное разрешение pad
+$tb-max:                  1365px !default; // Максимальное разрешение планшета
+$lp-max:                  1599px !default; // Максимальное разрешение ноутбука
+$dt-max:                  2559px !default; // Максимальное разрешение монитора (до широкого формата)
 
 // горизонтальные отступы
 $gutter:                  1rem !default;
-$gutter-xs:               1rem !default;
 $gutter-sm:               1rem !default;
-$gutter-md:               1rem !default;
-$gutter-lg:               1rem !default;
-$gutter-xl:               1rem !default;
+$gutter-pd:               1rem !default;
+$gutter-tb:               1rem !default;
+$gutter-lp:               1rem !default;
+$gutter-dt:               1rem !default;
+$gutter-wd:               1rem !default;
 
 $content-well-max-width:  1320px !default; // Set the max-width of the content well
 
-$sm-start:                ($xs-max + 1); // 360 px
-$md-start:                ($sm-max + 1); // 768 px
-$lg-start:                ($md-max + 1); // 1024 px
-$xl-start:                ($lg-max + 1); // 1366 px
+$pd-start:                ($sm-max + 1); // 768 px
+$tb-start:                ($pd-max + 1); // 1024 px
+$lp-start:                ($tb-max + 1); // 1366 px
+$dt-start:                ($lp-max + 1); // 1600 px
+$wd-start:                ($dt-max + 1); // 2560 px
 
 // Breakpoints
 // Create breakpoint range statements to be used in media queries
-$breakpoint-xs-only:      "only screen and (max-width: #{$xs-max})";                                  // 0 -> xs-max range             $phone
-$breakpoint-sm-up:        "only screen and (min-width: #{$sm-start})";                                // sm-start -> up range          $smart
-$breakpoint-sm-only:      "only screen and (min-width: #{$sm-start}) and (max-width: #{$sm-max})";    // sm-start -> sm-max range
-$breakpoint-md-up:        "only screen and (min-width: #{$md-start})";                                // md-start -> up range          $pad
-$breakpoint-md-only:      "only screen and (min-width: #{$md-start}) and (max-width: #{$md-max})";    // md-start -> md-max range
-$breakpoint-lg-up:        "only screen and (min-width: #{$lg-start})";                                // lg-start -> up range          $tablet
-$breakpoint-lg-only:      "only screen and (min-width: #{$lg-start}) and (max-width: #{$lg-max})";    // lg-start -> lg-max range
-$breakpoint-xl-up:        "only screen and (min-width: #{$xl-start})";                                // xl-start -> up range          $laptop
+$breakpoint-sm-only:      "only screen and (max-width: #{$sm-max})";
+$breakpoint-pd-up:        "only screen and (min-width: #{$pd-start})";
+$breakpoint-pd-only:      "only screen and (min-width: #{$pd-start}) and (max-width: #{$pd-max})";
+$breakpoint-tb-up:        "only screen and (min-width: #{$tb-start})";
+$breakpoint-tb-only:      "only screen and (min-width: #{$tb-start}) and (max-width: #{$tb-max})";
+$breakpoint-lp-up:        "only screen and (min-width: #{$lp-start})";
+$breakpoint-lp-only:      "only screen and (min-width: #{$lp-start}) and (max-width: #{$lp-max})";
+$breakpoint-dt-up:        "only screen and (min-width: #{$dt-start})";
+$breakpoint-dt-only:      "only screen and (min-width: #{$dt-start}) and (max-width: #{$dt-max})";
+$breakpoint-wd-up:        "only screen and (min-width: #{$wd-start})";
 
-$breakpoints-all:         ($breakpoint-xs-only, $breakpoint-sm-up, $breakpoint-sm-only, $breakpoint-md-up, $breakpoint-md-only, $breakpoint-lg-up, $breakpoint-lg-only, $breakpoint-xl-up);
-$breakpoint-ups:          ($breakpoint-sm-up, $breakpoint-md-up, $breakpoint-lg-up, $breakpoint-xl-up);
-$breakpoint-all-prefixes: ("xs", "xs-only", "sm", "sm-only", "md", "md-only", "lg", "lg-only", "xl");
-$breakpoint-up-prefixes:  ("xs", "sm", "md", "lg", "xl");
+$breakpoints-all:         ($breakpoint-sm-only, $breakpoint-pd-up, $breakpoint-pd-only, $breakpoint-tb-up, $breakpoint-tb-only, $breakpoint-lp-up, $breakpoint-lp-only, $breakpoint-dt-up, $breakpoint-dt-only, $breakpoint-wd-up);
+$breakpoint-ups:          ($breakpoint-pd-up, $breakpoint-tb-up, $breakpoint-lp-up, $breakpoint-dt-up, $breakpoint-wd-up);
+$breakpoint-all-prefixes: ("sm", "sm-only", "pd", "pd-only", "tb", "tb-only", "lp", "lp-only", "dt", "dt-only", "wd");
+$breakpoint-up-prefixes:  ("sm", "pd", "tb", "lp", "dt", "wd");
 
-$smart:                   $breakpoint-sm-up;
-$pad:                     $breakpoint-md-up;
-$tablet:                  $breakpoint-lg-up;
-$laptop:                  $breakpoint-xl-up;
+$pad:                     $breakpoint-pd-up;
+$tablet:                  $breakpoint-tb-up;
+$laptop:                  $breakpoint-lp-up;
+$desktop:                 $breakpoint-dt-up;
+$wide:                    $breakpoint-wd-up;
 
-$phone-only:              $breakpoint-xs-only;
 $smart-only:              $breakpoint-sm-only;
-$pad-only:                $breakpoint-md-only;
-$tablet-only:             $breakpoint-lg-only;
+$pad-only:                $breakpoint-pd-only;
+$tablet-only:             $breakpoint-tb-only;
+$laptop-only:             $breakpoint-lp-only;
+$desktop-only:            $breakpoint-dt-only;

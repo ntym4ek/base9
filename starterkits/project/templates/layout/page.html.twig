@@ -134,17 +134,17 @@
 
           <div class="row">
             {% if page.sidebar_first %}
-            <aside class="col-xs-12 col-md-4" role="complementary">
+            <aside class="col-sm-12 col-pd-4" role="complementary">
               {{ page.sidebar_first }}
             </aside>
             {% endif %}
 
-            <main class="col-xs-12 col-md" role="main">
+            <main class="col-sm-12 col-pd" role="main">
               {{ page.content }}
             </main>
 
             {% if page.sidebar_second %}
-            <aside class="col-xs-12 col-md-4" role="complementary">
+            <aside class="col-sm-12 col-pd-4" role="complementary">
               {{ page.sidebar_second }}
             </aside>
             {% endif %}
@@ -161,15 +161,15 @@
     <footer class="page-footer">
       <div class="container">
         <div class="row middle-xs">
-          <div class="col-xs-4">
+          <div class="col-sm-4">
             <div class="branding">
               <div class="branding__logo"><a href="/"><img src="{{ site.logo.transparent }}" alt="KCCC GROUP" /></a></div>
             </div>
           </div>
-          <div class="col-xs-4">
+          <div class="col-sm-4">
             {{ page.footer }}
           </div>
-          <div class="col-xs-4">
+          <div class="col-sm-4">
             <div class="rights">{{ site.copyright }}</div>
           </div>
         </div>

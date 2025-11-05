@@ -9,22 +9,25 @@
 
   &.full-height { height: 100%; }
 
-  @media #{$smart}  { padding: 0 $gutter-sm; }
-  @media #{$pad}    { padding: 0 $gutter-md; }
+  @media #{$pad}    { padding: 0 $gutter-pd; }
   @media #{$tablet} {
-    padding: 0 $gutter-lg;
+    padding: 0 $gutter-tb;
     margin: 0 auto;
   }
-  @media #{$laptop} { padding: 0 $gutter-xl; }
+  @media #{$laptop}   { padding: 0 $gutter-lp; }
+  @media #{$desktop}  { padding: 0 $gutter-dt; }
+  @media #{$wide}     { padding: 0 $gutter-wd; }
+
 }
 
 .container {
   .row  {
-                        @include row("false", $gutter-xs);
-    @media #{$smart}  { @include row("false", $gutter-sm); }
-    @media #{$pad}    { @include row("false", $gutter-md); }
-    @media #{$tablet} { @include row("false", $gutter-lg); }
-    @media #{$laptop} { @include row("false", $gutter-xl); }
+                          @include row("false", $gutter-sm);
+    @media #{$pad}      { @include row("false", $gutter-pd); }
+    @media #{$tablet}   { @include row("false", $gutter-tb); }
+    @media #{$laptop}   { @include row("false", $gutter-lp); }
+    @media #{$desktop}  { @include row("false", $gutter-dt); }
+    @media #{$wide}     { @include row("false", $gutter-wd); }
   }
 
   .row {
@@ -34,11 +37,12 @@
 
 .container-fluid {
   .row  {
-                        @include row("true", $gutter-xs);
-    @media #{$smart}  { @include row("true", $gutter-sm); }
-    @media #{$pad}    { @include row("true", $gutter-md); }
-    @media #{$tablet} { @include row("true", $gutter-lg); }
-    @media #{$laptop} { @include row("true", $gutter-xl); }
+                          @include row("true", $gutter-sm);
+    @media #{$pad}      { @include row("true", $gutter-pd); }
+    @media #{$tablet}   { @include row("true", $gutter-tb); }
+    @media #{$laptop}   { @include row("true", $gutter-lp); }
+    @media #{$desktop}  { @include row("true", $gutter-dt); }
+    @media #{$wide}     { @include row("true", $gutter-wd); }
   }
 
 }
@@ -56,17 +60,17 @@
 }
 
 // устарело
-//    пользоваться col-xs, col-md и т.д
-//    и col-xs-fill, col-md-fill и т.д
-.col {
-  max-width: 100%;    // col - колонка свободной ширины
-  padding: 0 1rem;
-  flex: 0 0 auto;
-  &.fill,
-  &.col-fill {
-    flex-grow: 1;     // col-fill - заполняет пустое пространство
-  }
-}
+//    пользоваться col-sm, col-pd и т.д
+//    и col-sm-fill, col-pd-fill и т.д
+//.col {
+//  max-width: 100%;    // col - колонка свободной ширины
+//  padding: 0 1rem;
+//  flex: 0 0 auto;
+//  &.fill,
+//  &.col-fill {
+//    flex-grow: 1;     // col-fill - заполняет пустое пространство
+//  }
+//}
 
 .col.reverse {
   @include col-reverse();
@@ -97,7 +101,7 @@
 }
 
 .align-stretch {
-    align-self: stretch;
+  align-self: stretch;
 }
 
 // Mixin to run inside of for loop - creates col/breakpoint classes * Not for developer use *
@@ -162,23 +166,27 @@
 
 @for $i from 1 through length($breakpoint-up-prefixes) {
   $thisPrefix: nth($breakpoint-up-prefixes, $i);
-  @if $thisPrefix == "xs" {
-    @include col-factory($thisPrefix, $gutter-xs);
-  } @else if $thisPrefix == "sm" {
-    @media #{$breakpoint-sm-up} {
-      @include col-factory($thisPrefix, $gutter-sm);
-    }
-  } @else if $thisPrefix == "md" {
-    @media #{$breakpoint-md-up} {
+  @if $thisPrefix == "sm" {
+    @include col-factory($thisPrefix, $gutter-sm);
+  } @else if $thisPrefix == "pd" {
+    @media #{$breakpoint-pd-up} {
       @include col-factory($thisPrefix, $gutter-md);
     }
-  } @else if $thisPrefix == "lg" {
-    @media #{$breakpoint-lg-up} {
-      @include col-factory($thisPrefix, $gutter-lg);
+  } @else if $thisPrefix == "tb" {
+    @media #{$breakpoint-tb-up} {
+      @include col-factory($thisPrefix, $gutter-tb);
     }
-  } @else if $thisPrefix == "xl" {
-    @media #{$breakpoint-xl-up} {
-      @include col-factory($thisPrefix, $gutter-xl);
+  } @else if $thisPrefix == "lp" {
+    @media #{$breakpoint-lp-up} {
+      @include col-factory($thisPrefix, $gutter-lp);
+    }
+  } @else if $thisPrefix == "dt" {
+    @media #{$breakpoint-dt-up} {
+      @include col-factory($thisPrefix, $gutter-dt);
+    }
+  } @else if $thisPrefix == "wd" {
+    @media #{$breakpoint-wd-up} {
+      @include col-factory($thisPrefix, $gutter-wd);
     }
   }
 }

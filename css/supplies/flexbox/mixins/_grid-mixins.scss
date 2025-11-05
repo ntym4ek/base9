@@ -65,22 +65,26 @@
     flex: 0 0 auto;
   } @else if $breakpoint == "fill" {
     @include col-condition($col-number, $gt);
-  } @else if $breakpoint == "xs" {
-    @include col-condition($col-number, $gt);
   } @else if $breakpoint == "sm" {
-    @media #{$breakpoint-sm-up} {
+    @include col-condition($col-number, $gt);
+  } @else if $breakpoint == "pd" {
+    @media #{$breakpoint-pd-up} {
       @include col-condition($col-number, $gt);
     }
-  } @else if $breakpoint == "md" {
-    @media #{$breakpoint-md-up} {
+  } @else if $breakpoint == "tb" {
+    @media #{$breakpoint-tb-up} {
       @include col-condition($col-number, $gt);
     }
-  } @else if $breakpoint == "lg" {
-    @media #{$breakpoint-lg-up} {
+  } @else if $breakpoint == "lp" {
+    @media #{$breakpoint-lp-up} {
       @include col-condition($col-number, $gt);
     }
-  } @else if $breakpoint == "xl" {
-    @media #{$breakpoint-xl-up} {
+  } @else if $breakpoint == "dt" {
+    @media #{$breakpoint-dt-up} {
+      @include col-condition($col-number, $gt);
+    }
+  } @else if $breakpoint == "wd" {
+    @media #{$breakpoint-wd-up} {
       @include col-condition($col-number, $gt);
     }
   } @else {
@@ -101,27 +105,31 @@
   }
 } // Condition to run inside of the col-offset mixin * not for developer use *
 
-@mixin col-offset($breakpoint: "xs", $offset-number: 0) {
+@mixin col-offset($breakpoint: "sm", $offset-number: 0) {
   // If no breakpoint is passed and a col number is just use the first arg as the col number and act like xs
   @if type-of($breakpoint) == number {
     $offset-number: $breakpoint;
     @include col-offset-condition($offset-number);
-  } @else if $breakpoint == "xs" {
-    @include col-offset-condition($offset-number);
   } @else if $breakpoint == "sm" {
-    @media #{$breakpoint-sm-up} {
+    @include col-offset-condition($offset-number);
+  } @else if $breakpoint == "pd" {
+    @media #{$breakpoint-pd-up} {
       @include col-offset-condition($offset-number);
     }
-  } @else if $breakpoint == "md" {
-    @media #{$breakpoint-md-up} {
+  } @else if $breakpoint == "tb" {
+    @media #{$breakpoint-tb-up} {
       @include col-offset-condition($offset-number);
     }
-  } @else if $breakpoint == "lg" {
-    @media #{$breakpoint-lg-up} {
+  } @else if $breakpoint == "lp" {
+    @media #{$breakpoint-lp-up} {
       @include col-offset-condition($offset-number);
     }
-  } @else if $breakpoint == "xl" {
-    @media #{$breakpoint-xl-up} {
+  } @else if $breakpoint == "dt" {
+    @media #{$breakpoint-dt-up} {
+      @include col-offset-condition($offset-number);
+    }
+  } @else if $breakpoint == "wd" {
+    @media #{$breakpoint-wd-up} {
       @include col-offset-condition($offset-number);
     }
   } @else {
@@ -129,23 +137,27 @@
   }
 }
 
-@mixin start($breakpoint: "xs") {
-  @if $breakpoint == "xs" {
+@mixin start($breakpoint: "sm") {
+  @if $breakpoint == "sm" {
     justify-content: flex-start;
-  } @else if $breakpoint == "sm" {
-    @media #{$breakpoint-sm-up} {
+  } @else if $breakpoint == "pd" {
+    @media #{$breakpoint-pd-up} {
       justify-content: flex-start;
     }
-  } @else if $breakpoint == "md" {
-    @media #{$breakpoint-md-up} {
+  } @else if $breakpoint == "tb" {
+    @media #{$breakpoint-tb-up} {
       justify-content: flex-start;
     }
-  } @else if $breakpoint == "lg" {
-    @media #{$breakpoint-lg-up} {
+  } @else if $breakpoint == "lp" {
+    @media #{$breakpoint-lp-up} {
       justify-content: flex-start;
     }
-  } @else if $breakpoint == "xl" {
-    @media #{$breakpoint-xl-up} {
+  } @else if $breakpoint == "dt" {
+    @media #{$breakpoint-dt-up} {
+      justify-content: flex-start;
+    }
+  } @else if $breakpoint == "wd" {
+    @media #{$breakpoint-wd-up} {
       justify-content: flex-start;
     }
   } @else {
@@ -153,23 +165,27 @@
   }
 }
 
-@mixin center($breakpoint: "xs") {
-  @if $breakpoint == "xs" {
+@mixin center($breakpoint: "sm") {
+  @if $breakpoint == "sm" {
     justify-content: center;
-  } @else if $breakpoint == "sm" {
-    @media #{$breakpoint-sm-up} {
+  } @else if $breakpoint == "pd" {
+    @media #{$breakpoint-pd-up} {
       justify-content: center;
     }
-  } @else if $breakpoint == "md" {
-    @media #{$breakpoint-md-up} {
+  } @else if $breakpoint == "tb" {
+    @media #{$breakpoint-tb-up} {
       justify-content: center;
     }
-  } @else if $breakpoint == "lg" {
-    @media #{$breakpoint-lg-up} {
+  } @else if $breakpoint == "lp" {
+    @media #{$breakpoint-lp-up} {
       justify-content: center;
     }
-  } @else if $breakpoint == "xl" {
-    @media #{$breakpoint-xl-up} {
+  } @else if $breakpoint == "dt" {
+    @media #{$breakpoint-dt-up} {
+      justify-content: center;
+    }
+  } @else if $breakpoint == "wd" {
+    @media #{$breakpoint-wd-up} {
       justify-content: center;
     }
   } @else {
@@ -177,23 +193,27 @@
   }
 }
 
-@mixin end($breakpoint: "xs") {
-  @if $breakpoint == "xs" {
+@mixin end($breakpoint: "sm") {
+  @if $breakpoint == "sm" {
     justify-content: flex-end;
-  } @else if $breakpoint == "sm" {
-    @media #{$breakpoint-sm-up} {
+  } @else if $breakpoint == "pd" {
+    @media #{$breakpoint-pd-up} {
       justify-content: flex-end;
     }
-  } @else if $breakpoint == "md" {
-    @media #{$breakpoint-md-up} {
+  } @else if $breakpoint == "tb" {
+    @media #{$breakpoint-tb-up} {
       justify-content: flex-end;
     }
-  } @else if $breakpoint == "lg" {
-    @media #{$breakpoint-lg-up} {
+  } @else if $breakpoint == "lp" {
+    @media #{$breakpoint-lp-up} {
       justify-content: flex-end;
     }
-  } @else if $breakpoint == "xl" {
-    @media #{$breakpoint-xl-up} {
+  } @else if $breakpoint == "dt" {
+    @media #{$breakpoint-dt-up} {
+      justify-content: flex-end;
+    }
+  } @else if $breakpoint == "wd" {
+    @media #{$breakpoint-wd-up} {
       justify-content: flex-end;
     }
   } @else {
@@ -201,23 +221,27 @@
   }
 }
 
-@mixin top($breakpoint: "xs") {
-  @if $breakpoint == "xs" {
+@mixin top($breakpoint: "sm") {
+  @if $breakpoint == "sm" {
     align-items: flex-start;
-  } @else if $breakpoint == "sm" {
-    @media #{$breakpoint-sm-up} {
+  } @else if $breakpoint == "pd" {
+    @media #{$breakpoint-pd-up} {
       align-items: flex-start;
     }
-  } @else if $breakpoint == "md" {
-    @media #{$breakpoint-md-up} {
+  } @else if $breakpoint == "tb" {
+    @media #{$breakpoint-tb-up} {
       align-items: flex-start;
     }
-  } @else if $breakpoint == "lg" {
-    @media #{$breakpoint-lg-up} {
+  } @else if $breakpoint == "lp" {
+    @media #{$breakpoint-lp-up} {
       align-items: flex-start;
     }
-  } @else if $breakpoint == "xl" {
-    @media #{$breakpoint-xl-up} {
+  } @else if $breakpoint == "dt" {
+    @media #{$breakpoint-dt-up} {
+      align-items: flex-start;
+    }
+  } @else if $breakpoint == "wd" {
+    @media #{$breakpoint-wd-up} {
       align-items: flex-start;
     }
   } @else {
@@ -225,23 +249,27 @@
   }
 }
 
-@mixin middle($breakpoint: "xs") {
-  @if $breakpoint == "xs" {
+@mixin middle($breakpoint: "sm") {
+  @if $breakpoint == "sm" {
     align-items: center;
-  } @else if $breakpoint == "sm" {
-    @media #{$breakpoint-sm-up} {
+  } @else if $breakpoint == "pd" {
+    @media #{$breakpoint-pd-up} {
       align-items: center;
     }
-  } @else if $breakpoint == "md" {
-    @media #{$breakpoint-md-up} {
+  } @else if $breakpoint == "tb" {
+    @media #{$breakpoint-tb-up} {
       align-items: center;
     }
-  } @else if $breakpoint == "lg" {
-    @media #{$breakpoint-lg-up} {
+  } @else if $breakpoint == "lp" {
+    @media #{$breakpoint-lp-up} {
       align-items: center;
     }
-  } @else if $breakpoint == "xl" {
-    @media #{$breakpoint-xl-up} {
+  } @else if $breakpoint == "dt" {
+    @media #{$breakpoint-dt-up} {
+      align-items: center;
+    }
+  } @else if $breakpoint == "wd" {
+    @media #{$breakpoint-wd-up} {
       align-items: center;
     }
   } @else {
@@ -249,23 +277,27 @@
   }
 }
 
-@mixin bottom($breakpoint: "xs") {
-  @if $breakpoint == "xs" {
+@mixin bottom($breakpoint: "sm") {
+  @if $breakpoint == "sm" {
     align-items: flex-end;
-  } @else if $breakpoint == "sm" {
-    @media #{$breakpoint-sm-up} {
+  } @else if $breakpoint == "pd" {
+    @media #{$breakpoint-pd-up} {
       align-items: flex-end;
     }
-  } @else if $breakpoint == "md" {
-    @media #{$breakpoint-md-up} {
+  } @else if $breakpoint == "tb" {
+    @media #{$breakpoint-tb-up} {
       align-items: flex-end;
     }
-  } @else if $breakpoint == "lg" {
-    @media #{$breakpoint-lg-up} {
+  } @else if $breakpoint == "lp" {
+    @media #{$breakpoint-lp-up} {
       align-items: flex-end;
     }
-  } @else if $breakpoint == "xl" {
-    @media #{$breakpoint-xl-up} {
+  } @else if $breakpoint == "dt" {
+    @media #{$breakpoint-dt-up} {
+      align-items: flex-end;
+    }
+  } @else if $breakpoint == "wd" {
+    @media #{$breakpoint-wd-up} {
       align-items: flex-end;
     }
   } @else {
@@ -273,23 +305,27 @@
   }
 }
 
-@mixin around($breakpoint: "xs") {
-  @if $breakpoint == "xs" {
+@mixin around($breakpoint: "sm") {
+  @if $breakpoint == "sm" {
     justify-content: space-around;
-  } @else if $breakpoint == "sm" {
-    @media #{$breakpoint-sm-up} {
+  } @else if $breakpoint == "pd" {
+    @media #{$breakpoint-pd-up} {
       justify-content: space-around;
     }
-  } @else if $breakpoint == "md" {
-    @media #{$breakpoint-md-up} {
+  } @else if $breakpoint == "tb" {
+    @media #{$breakpoint-tb-up} {
       justify-content: space-around;
     }
-  } @else if $breakpoint == "lg" {
-    @media #{$breakpoint-lg-up} {
+  } @else if $breakpoint == "lp" {
+    @media #{$breakpoint-lp-up} {
       justify-content: space-around;
     }
-  } @else if $breakpoint == "xl" {
-    @media #{$breakpoint-xl-up} {
+  } @else if $breakpoint == "dt" {
+    @media #{$breakpoint-dt-up} {
+      justify-content: space-around;
+    }
+  } @else if $breakpoint == "wd" {
+    @media #{$breakpoint-wd-up} {
       justify-content: space-around;
     }
   } @else {
@@ -297,23 +333,27 @@
   }
 }
 
-@mixin between($breakpoint: "xs") {
-  @if $breakpoint == "xs" {
+@mixin between($breakpoint: "sm") {
+  @if $breakpoint == "sm" {
     justify-content: space-between;
-  } @else if $breakpoint == "sm" {
-    @media #{$breakpoint-sm-up} {
+  } @else if $breakpoint == "pd" {
+    @media #{$breakpoint-pd-up} {
       justify-content: space-between;
     }
-  } @else if $breakpoint == "md" {
-    @media #{$breakpoint-md-up} {
+  } @else if $breakpoint == "tb" {
+    @media #{$breakpoint-tb-up} {
       justify-content: space-between;
     }
-  } @else if $breakpoint == "lg" {
-    @media #{$breakpoint-lg-up} {
+  } @else if $breakpoint == "lp" {
+    @media #{$breakpoint-lp-up} {
       justify-content: space-between;
     }
-  } @else if $breakpoint == "xl" {
-    @media #{$breakpoint-xl-up} {
+  } @else if $breakpoint == "dt" {
+    @media #{$breakpoint-dt-up} {
+      justify-content: space-between;
+    }
+  } @else if $breakpoint == "wd" {
+    @media #{$breakpoint-wd-up} {
       justify-content: space-between;
     }
   } @else {
@@ -321,23 +361,27 @@
   }
 }
 
-@mixin first($breakpoint: "xs") {
-  @if $breakpoint == "xs" {
+@mixin first($breakpoint: "sm") {
+  @if $breakpoint == "sm" {
     order: -1;
-  } @else if $breakpoint == "sm" {
-    @media #{$breakpoint-sm-up} {
+  } @else if $breakpoint == "pd" {
+    @media #{$breakpoint-pd-up} {
       order: -1;
     }
-  } @else if $breakpoint == "md" {
-    @media #{$breakpoint-md-up} {
+  } @else if $breakpoint == "tb" {
+    @media #{$breakpoint-tb-up} {
       order: -1;
     }
-  } @else if $breakpoint == "lg" {
-    @media #{$breakpoint-lg-up} {
+  } @else if $breakpoint == "lp" {
+    @media #{$breakpoint-lp-up} {
       order: -1;
     }
-  } @else if $breakpoint == "xl" {
-    @media #{$breakpoint-xl-up} {
+  } @else if $breakpoint == "dt" {
+    @media #{$breakpoint-dt-up} {
+      order: -1;
+    }
+  } @else if $breakpoint == "wd" {
+    @media #{$breakpoint-wd-up} {
       order: -1;
     }
   } @else {
@@ -345,23 +389,27 @@
   }
 }
 
-@mixin last($breakpoint: "xs") {
-  @if $breakpoint == "xs" {
+@mixin last($breakpoint: "sm") {
+  @if $breakpoint == "sm" {
     order: 1;
-  } @else if $breakpoint == "sm" {
-    @media #{$breakpoint-sm-up} {
+  } @else if $breakpoint == "pd" {
+    @media #{$breakpoint-pd-up} {
       order: 1;
     }
-  } @else if $breakpoint == "md" {
-    @media #{$breakpoint-md-up} {
+  } @else if $breakpoint == "tb" {
+    @media #{$breakpoint-tb-up} {
       order: 1;
     }
-  } @else if $breakpoint == "lg" {
-    @media #{$breakpoint-lg-up} {
+  } @else if $breakpoint == "lp" {
+    @media #{$breakpoint-lp-up} {
       order: 1;
     }
-  } @else if $breakpoint == "xl" {
-    @media #{$breakpoint-xl-up} {
+  } @else if $breakpoint == "dt" {
+    @media #{$breakpoint-dt-up} {
+      order: 1;
+    }
+  } @else if $breakpoint == "wd" {
+    @media #{$breakpoint-wd-up} {
       order: 1;
     }
   } @else {
