@@ -4,7 +4,7 @@
 
 .container,
 .container-fluid {
-  padding: 0 $gutter-xs;
+  padding: 0 $gutter-sm;
   width: 100%;
 
   &.full-height { height: 100%; }
@@ -30,9 +30,7 @@
     @media #{$wide}     { @include row("false", $gutter-wd); }
   }
 
-  .row {
-    @media #{$tablet} { max-width: $content-well-max-width; }
-  }
+  @media #{$tablet}   { max-width: $content-well-max-width; }
 }
 
 .container-fluid {
@@ -58,19 +56,6 @@
 .row.flex-column {
   @include row-flex-column();
 }
-
-// устарело
-//    пользоваться col-sm, col-pd и т.д
-//    и col-sm-fill, col-pd-fill и т.д
-//.col {
-//  max-width: 100%;    // col - колонка свободной ширины
-//  padding: 0 1rem;
-//  flex: 0 0 auto;
-//  &.fill,
-//  &.col-fill {
-//    flex-grow: 1;     // col-fill - заполняет пустое пространство
-//  }
-//}
 
 .col.reverse {
   @include col-reverse();
@@ -170,7 +155,7 @@
     @include col-factory($thisPrefix, $gutter-sm);
   } @else if $thisPrefix == "pd" {
     @media #{$breakpoint-pd-up} {
-      @include col-factory($thisPrefix, $gutter-md);
+      @include col-factory($thisPrefix, $gutter-pd);
     }
   } @else if $thisPrefix == "tb" {
     @media #{$breakpoint-tb-up} {

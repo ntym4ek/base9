@@ -119,7 +119,7 @@
   }
 
   .page-banner {
-    margin-bottom: $block-offset-xs;
+    margin-bottom: $block-offset-sm;
 
     .container { display: flex; align-items: center; }
     .screen-wide { height: 200px; }
@@ -141,7 +141,7 @@
     }
 
     @media #{$tablet} {
-      margin-bottom: $block-offset-xl;
+      margin-bottom: $block-offset-tb;
       .screen-wide { height: 750px; }
       .banner-title-wrapper { padding-bottom: 4rem; }
       .banner-title {
