@@ -2,6 +2,8 @@
  * @file
  * Добавляет фильтр для текстового поля с предварительно загруженными опциями выбора.
  * У поля нужно заменить тему оформления на input_dropdown_filter и добавить опции в параметр '#dropdown_options'
+ * Атрибуты:
+ *    'data-diacritics' = 'off' - отключает локальную фильрацию
  */
 
 (($, Drupal) => {
@@ -20,8 +22,9 @@
         })
       $wrapper.off('focusout.inputDropdownFilter');
       $wrapper.on('focusout.inputDropdownFilter', function() {
-          setTimeout(() => $menu.hide(), 100)
-        })
+        // todo если поставить 100, то клик по ссылке в выпадающем меню не отрабатывает
+        setTimeout(() => $menu.hide(), 200);
+      })
 
       $menu
         .find('li').each((key, item) => {

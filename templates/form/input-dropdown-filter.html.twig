@@ -10,6 +10,7 @@
  * @see template_preprocess_input()
  */
 #}
+{% apply spaceless %}
 <div class="input-dropdown-filter">
   <input{{ attributes.addClass('input-dropdown-input')|without('size') }} />{{ children }}
   <ul class="input-dropdown-menu" style="display:none;">
@@ -20,3 +21,4 @@
     {% endfor %}
   </ul>
 </div>
+{% endapply %}
