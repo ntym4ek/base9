@@ -20,17 +20,21 @@
 
           if (parentId) {
             const swiper = typeof Swiper !== 'undefined' ? Swiper : (window.SwiperFormatter ?? null);
-            let sw = new swiper(element, {
-              direction: 'vertical',
-              spaceBetween: 20,
-              slidesPerView: 'auto',
-              watchSlidesProgress: true,
-            });
+            if (swiper) {
+              let sw = new swiper(element, {
+                direction: 'vertical',
+                spaceBetween: 20,
+                slidesPerView: 'auto',
+                watchSlidesProgress: true,
+                mousewheel: true,
+              });
 
-            let parentSwiper = drupalSettings.swipers[parentId];
-            if (parentSwiper) {
-              parentSwiper.thumbs = {swiper: sw};
-              parentSwiper.update();
+              let parentSwiper = drupalSettings.swipers[parentId];
+              if (parentSwiper) {
+                parentSwiper.thumbs.swiper = sw;
+                parentSwiper.thumbs.init();
+                parentSwiper.update();
+              }
             }
           }
         }
