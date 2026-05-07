@@ -96,7 +96,7 @@ swiper-thumbs:
   dependencies:
     - core/drupal
     - core/once
-    - swiper_formatter/remote
+    - swiper_formatter/swiper_formatter
 
 tabs-js:
   version: VERSION

@@ -27,9 +27,10 @@
               watchSlidesProgress: true,
             });
 
-            let parentSwiper = drupalSettings.swiper_formatter.swipers[parentId];
+            let parentSwiper = drupalSettings.swipers[parentId];
             if (parentSwiper) {
               parentSwiper.thumbs = {swiper: sw};
+              parentSwiper.update();
             }
           }
         }
