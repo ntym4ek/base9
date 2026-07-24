@@ -17,6 +17,7 @@
   input[type=password],
   select,
   textarea {
+    background: $input-bg-color;
     border: $input-border-width solid $input-border-color;
     border-radius: $input-border-radius;
     display: block;
@@ -24,6 +25,7 @@
     padding: $input-padding-base-v $input-padding-base-h;
     width: 100%; max-width: 100%;
     &.error { border-color: $brand-danger; }
+    &:focus { border-color: $input-focus-color; }
   }
 
   input[type=text],

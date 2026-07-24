@@ -1,6 +1,6 @@
 name: Project
 type: theme
-description: 'Тема проекта на базе базовой темы Base9'
+description: 'Тема проекта на основе базовой темы Base9'
 package: Core
 version: 1.0.0
 base theme: base9

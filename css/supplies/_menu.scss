@@ -46,7 +46,8 @@ ul.menu {
           &.active-trail { color: $menu-item-active-color; }
           &:hover { color: $menu-item-hover-color; }
         }
-        > &.first a { padding-left: 0; }  // выровнять первый пункт меню по сетке
+        &.first a,
+        &:first-child a { padding-left: 0; }  // выровнять первый пункт меню по сетке
       }
 
     }

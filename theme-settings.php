@@ -5,6 +5,7 @@
  * Functions to support Olivero theme settings.
  */
 
+use Drupal\Core\Extension\ThemeSettingsProvider;
 use Drupal\Core\Form\FormStateInterface;
 
 /**
@@ -23,7 +24,7 @@ function base9_form_system_theme_settings_alter(&$form, FormStateInterface $form
   $form['other']['page-offside-position'] = array(
     '#type' => 'select',
     '#title' => 'Позиция мобильного меню',
-    '#default_value' => theme_get_setting('page-offside-position') ?? 'left',
+    '#default_value' => \Drupal::service(ThemeSettingsProvider::class)->getSetting('page-offside-position') ?? 'left',
     '#options' => [
       'left' => 'Слева',
       'right' => 'Справа',
@@ -33,6 +34,6 @@ function base9_form_system_theme_settings_alter(&$form, FormStateInterface $form
     '#type' => 'textfield',
     '#title' => 'Breakpoint меню мобильной версии',
     '#description' => 'Ширина экрана, начиная с которой мобильное меню заменяется на десктопное',
-    '#default_value' => theme_get_setting('page-offside-hide-width') ?? '1024',
+    '#default_value' => \Drupal::service(ThemeSettingsProvider::class)->getSetting('page-offside-hide-width') ?? '1024',
   );
 }

@@ -3,7 +3,7 @@
 
 .button {
   @include btn();
-  @include button-size($btn-padding-base-v, $btn-padding-base-h, $btn-font-size-base, $line-height-base, $btn-border-radius-base, $input-height-base);
+  @include button-size($btn-padding-base-h, $btn-font-size-base, $line-height-base, $btn-border-radius-base, $input-height-base);
 
   &:hover,
   &:focus,
@@ -171,15 +171,15 @@
 .button--large,
 .button--lg {
   // line-height: ensure even-numbered height of button next to large input
-  @include button-size($btn-padding-large-v, $btn-padding-large-h, $btn-font-size-large, $line-height-large, $btn-border-radius-large, $input-height-large);
+  @include button-size($btn-padding-large-h, $btn-font-size-large, $line-height-large, $btn-border-radius-large, $input-height-large);
 }
 .button--small,
 .button--sm {
   // line-height: ensure proper height of button next to small input
-  @include button-size($btn-padding-small-v, $btn-padding-small-h, $btn-font-size-small, $line-height-small, $btn-border-radius-small, $input-height-small);
+  @include button-size($btn-padding-small-h, $btn-font-size-small, $line-height-small, $btn-border-radius-small, $input-height-small);
 }
 .button--xs {
-  @include button-size($padding-xs-vertical, $padding-xs-horizontal, $btn-font-size-small, $line-height-small, $btn-border-radius-small, $input-height-small*.89);
+  @include button-size($input-padding-xs-h, $btn-font-size-small, $line-height-small, $btn-border-radius-small, $input-height-small*.89);
 }
 
 .badge {

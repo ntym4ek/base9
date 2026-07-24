@@ -19,8 +19,8 @@ html * {
   box-sizing: border-box;
   outline: 0 !important;
   scrollbar-color: $brand-primary #f1f1f1;
-  scrollbar-gutter: stable;
 }
+html { scrollbar-gutter: stable; }
 
 a { text-decoration: none; }
 
@@ -52,7 +52,7 @@ h4, h5, h6 { margin: 1rem 0; }
 
 .screen-wide {
   @include screen-wide();
-  overflow: hidden;
+  overflow: clip;
 }
 
 img {
@@ -63,10 +63,14 @@ img {
 .clearfix:after { content: ''; }
 
 
+// корректировка стандартного стиля, оставляющего 1px под подвалом
+.visually-hidden {
+  inset: 0;
+}
 
 // --- Иконочный шрифт ---------------------------------------------------------------------
 .icon {
-  display: inline-block;
+  display: inline-flex;
   line-height: normal;
   vertical-align: middle;
 }

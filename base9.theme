@@ -5,6 +5,7 @@
  * Functions to support theming.
  */
 
+use Drupal\Core\Extension\ThemeSettingsProvider;
 use Drupal\image\Entity\ImageStyle;
 
 /**
@@ -28,10 +29,10 @@ function base9_preprocess_html(&$vars)
 {
   // -- настройки темы
     // сторона расположения меню (умолчанию слева)
-  $vars['attributes']['class'][] = 'page-offside-' . (theme_get_setting('page-offside-position') ?? 'left');
+  $vars['attributes']['class'][] = 'page-offside-' . (\Drupal::service(ThemeSettingsProvider::class)->getSetting('page-offside-position') ?? 'left');
     // ширина экрана при которой мобильное меню заменяется на десктопное
   $vars['#attached']['drupalSettings']['theme'] = [
-    'page_offside_hide_width' => theme_get_setting('page-offside-hide-width') ?? '1024',
+    'page_offside_hide_width' => \Drupal::service(ThemeSettingsProvider::class)->getSetting('page-offside-hide-width') ?? '1024',
   ];
 }
 
@@ -100,7 +101,7 @@ function base9_preprocess_page(array &$vars): void
 //    ];
 
     // ширина экрана, до которой выводится мобильная версия баннера
-    $banner['break'] = theme_get_setting('nav-mobile-hide-width') ?? '1024';
+    $banner['break'] = \Drupal::service(ThemeSettingsProvider::class)->getSetting('nav-mobile-hide-width') ?? '1024';
     $banner['image']['url'] = \Drupal::service('file_url_generator')->generateString($banner_uri);
 
     // если стиля для мобильного баннера не существует, создать его

@@ -2,7 +2,7 @@
 
 // --- Разметка страницы --------------------------------------------------------------
 .page-wrapper {
-  overflow: hidden;
+  overflow: clip;
 }
 
 .page {
@@ -57,9 +57,4 @@
 
 .page-title {
   margin-bottom: 2rem;
-}
-
-// корректировка стандартного стиля, оставляющего 1px под подвалом
-.visually-hidden {
-  inset: 0;
 }

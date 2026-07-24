@@ -8,7 +8,7 @@
 
 @mixin btn() {
   background-image: none;                                                       // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
-  border: 1px solid transparent;
+  border: $btn-border-width solid transparent;
   cursor: pointer;
   display: inline-block;
   font-weight: $btn-font-weight;
@@ -72,7 +72,11 @@
 }
 
 // Button sizes
-@mixin button-size($padding-vertical, $padding-horizontal, $font-size, $line-height, $border-radius, $height) {
+@mixin button-size($padding-horizontal, $font-size, $line-height, $border-radius, $height) {
+
+  $text-height: $font-size * $line-height;
+  $padding-vertical: ($height - $text-height - $btn-border-width*2) / 2;
+
   padding: $padding-vertical $padding-horizontal;
   font-size: $font-size;
   line-height: $line-height;
