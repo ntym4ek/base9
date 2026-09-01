@@ -41,25 +41,25 @@ function base9_preprocess_html(&$vars)
  */
 function base9_preprocess_page(array &$vars): void
 {
-  // Load the site name out of configuration.
+  // - Load the site name out of configuration.
   $config = \Drupal::config('system.site');
   $vars['site']['name'] = $config->get('name');
 
-  // логотипы
+  // - Логотипы
   $path_theme = \Drupal::service('extension.path.resolver')->getPath('theme', 'base9');
   $vars['site']['logo']['standart'] = \Drupal::service('file_url_generator')->generateString($path_theme . '/images/logo/logo.png');
   $vars['site']['logo']['transparent'] = \Drupal::service('file_url_generator')->generateString($path_theme . '/images/logo/logo_t.png');
 
-  // для copyright в подвале
+  // - Copyright в подвале
   $vars['site']['copyright'] = '© ' . date('Y') . ' KCCC GROUP';
 
-  // можно отключить шапку
+  // - Можно отключить шапку
   $vars['is_header_on'] = true;
 
-  // можно отключить заголовок
+  // - Можно отключить заголовок
   $vars['is_title_on'] = true;
 
-  // баннер с заголовком
+  // - Баннер с заголовком в начале страницы
   $banner = [];
 
   // Вывод баннера, если в папке page-banners есть изображение с именем, аналогичным пути.
@@ -71,6 +71,10 @@ function base9_preprocess_page(array &$vars): void
   } else {
     $current_path = \Drupal::service('path.current')->getPath();
     $current_alias = \Drupal::service('path_alias.manager')->getAliasByPath($current_path);
+
+    $current_path = ltrim($current_path, '/');
+    $current_alias = ltrim($current_alias, '/');
+
     $paths = [$current_path];
     if ($current_path !== $current_alias) {
       $paths[] = $current_alias;
