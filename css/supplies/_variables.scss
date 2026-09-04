@@ -34,6 +34,7 @@ $text-color:                    #333!default;
 $text-light:                    $gray-dark!default;
 $text-muted:                    $gray!default;
 
+$scroll-color:                  $brand-primary!default;
 
 //** Global textual link color.
 $link-color:                    $brand-primary !default;
@@ -117,6 +118,8 @@ $input-bg-color:                #fff!default;
 $input-bg-disabled:             $gray-light !default;
 $input-disabled-opacity:        .5!default;
 $input-focus-color:             #aaa!default;
+$input-mark-color:              #ccc!default;
+
 
 $input-padding-base-v:          6px !default;
 $input-padding-base-h:          12px !default;

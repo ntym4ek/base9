@@ -18,7 +18,7 @@ html {
 html * {
   box-sizing: border-box;
   outline: 0 !important;
-  scrollbar-color: $brand-primary #f1f1f1;
+  scrollbar-color: $scroll-color #f1f1f1;
 }
 html { scrollbar-gutter: stable; }
 
