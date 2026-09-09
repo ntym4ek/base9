@@ -54,6 +54,13 @@ iconfont:
       fonts/iconfont/styles.css:
         weight: -10
 
+helper:
+  version: VERSION
+  js:
+    js/helper.js: {}
+  dependencies:
+    - core/drupal
+
 click-to-copy:
   version: VERSION
   css:
