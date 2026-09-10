@@ -38,13 +38,15 @@ ul.menu {
       > li {
         display: inline-block;
         position: relative;
-        &:hover > .menu { visibility: visible; opacity: 1; }
+        &:hover {
+          & > .menu { visibility: visible; opacity: 1; }
+          > a { color: $menu-item-hover-color; }
+        }
         > a {
           color: $menu-item-color; white-space: nowrap;
           &.is-active,
           &:focus,
           &.active-trail { color: $menu-item-active-color; }
-          &:hover { color: $menu-item-hover-color; }
         }
         &.first a,
         &:first-child a { padding-left: 0; }  // выровнять первый пункт меню по сетке

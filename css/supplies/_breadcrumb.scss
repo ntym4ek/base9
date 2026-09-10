@@ -6,7 +6,7 @@
 
   a {
     color: $text-light; text-decoration: none;
-    &:hover { color: $brand-primary; }
+    &:hover { color: $link-hover-color; }
   }
 
   li::before {
