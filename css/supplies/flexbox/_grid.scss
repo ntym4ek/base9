@@ -4,19 +4,19 @@
 
 .container,
 .container-fluid {
-  padding: 0 $gutter-sm;
+  padding: 0 $page-gutter-sm;
   width: 100%;
 
   &.full-height { height: 100%; }
 
-  @media #{$pad}    { padding: 0 $gutter-pd; }
+  @media #{$pad}    { padding: 0 $page-gutter-pd; }
   @media #{$tablet} {
-    padding: 0 $gutter-tb;
+    padding: 0 $page-gutter-tb;
     margin: 0 auto;
   }
-  @media #{$laptop}   { padding: 0 $gutter-lp; }
-  @media #{$desktop}  { padding: 0 $gutter-dt; }
-  @media #{$wide}     { padding: 0 $gutter-wd; }
+  @media #{$laptop}   { padding: 0 $page-gutter-lp; }
+  @media #{$desktop}  { padding: 0 $page-gutter-dt; }
+  @media #{$wide}     { padding: 0 $page-gutter-wd; }
 
 }
 

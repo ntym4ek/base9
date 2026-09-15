@@ -2,7 +2,7 @@
 
 // --- Разметка страницы --------------------------------------------------------------
 .page-wrapper {
-  overflow: clip;
+  overflow: hidden;
 }
 
 .page {
@@ -58,3 +58,4 @@
 .page-title {
   margin-bottom: 2rem;
 }
+

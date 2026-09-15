@@ -7,7 +7,7 @@ $tb-max:                  1365px !default; // Максимальное разр�
 $lp-max:                  1599px !default; // Максимальное разрешение ноутбука
 $dt-max:                  1919px !default; // Максимальное разрешение монитора (до широкого формата)
 
-// горизонтальные отступы
+// горизонтальные отступы между блоками
 $gutter:                  1rem !default;
 $gutter-sm:               1rem !default;
 $gutter-pd:               1rem !default;
@@ -15,6 +15,14 @@ $gutter-tb:               1rem !default;
 $gutter-lp:               1rem !default;
 $gutter-dt:               1rem !default;
 $gutter-wd:               1rem !default;
+
+// горизонтальные отступы от краёв страницы (для $container и $container-fluid)
+$page-gutter-sm:               1rem !default;
+$page-gutter-pd:               1rem !default;
+$page-gutter-tb:               1rem !default;
+$page-gutter-lp:               1rem !default;
+$page-gutter-dt:               1rem !default;
+$page-gutter-wd:               1rem !default;
 
 $content-well-max-width:  1320px !default; // Set the max-width of the content well
 

@@ -127,7 +127,7 @@ function base9_preprocess_page(array &$vars): void
       $image_style->save();
     }
     // версия баннера для мобильных
-    $banner['image']['mobile_url'] = ImageStyle::load('banner_mobile')->buildUrl($path);
+    $banner['image']['mobile_url'] = ImageStyle::load('banner_mobile')->buildUrl($banner_uri);
 
     $vars['banner'] = $banner;
   }
