@@ -28,45 +28,43 @@
         }
       }
 
-      if (drupalSettings.theme) {
-        once('page-offside-once', '.page-wrapper', context).forEach(
-          (element) => {
+      once('page-offside-once', '.page-wrapper', context).forEach(
+        (element) => {
 
-            // ширина экрана (обычно lg), начиная с которой убираем мобильное меню
-            const menuHideWidth = drupalSettings.theme.page_offside_hide_width;
-            if ($(window).width() < menuHideWidth) {
-              // клик по иконке Меню
-              $(".page-offside-label").on("click", (e) => {
-                toggleMobileNav();
-                e.stopPropagation();
-              });
+          // ширина экрана (обычно lg), начиная с которой убираем мобильное меню
+          const menuHideWidth = drupalSettings.theme?.page_offside_hide_width;
+          if ($(window).width() < menuHideWidth) {
+            // клик по иконке Меню
+            $(".page-offside-label").on("click", (e) => {
+              toggleMobileNav();
+              e.stopPropagation();
+            });
 
-              $(".page-offside-left .page, .page-offside-left .page-offside-label").on("swiped-right", (e) => {
-                // если свайп вправо на Свайпере или блоке с классом main-menu-disabled, то не показываем меню
-                let is_prohibited = $(e.target).closest(".page-offside-disabled, .swiper-container").length > 0;
-                if (!is_prohibited) {
-                  showMobileNav();
-                }
-              });
-              $(".page-offside-right .page, .page-offside-right .page-offside-label").on("swiped-left", (e) => {
-                // если свайп вправо на Свайпере, то не показываем меню
-                let is_prohibited = $(e.target).closest(".page-offside-disabled, .swiper-container").length > 0;
-                if (!is_prohibited) {
-                  showMobileNav();
-                }
-              });
-              $(".page-offside-left .page, .page-offside-left .page-offside, .page-offside-left .page-offside-label").on("swiped-left", () => {
-                hideMobileNav();
-              });
-              $(".page-offside-right .page, .page-offside-right .page-offside, .page-offside-right .page-offside-label").on("swiped-right", () => {
-                hideMobileNav();
-              });
-              $(".page").on("click", () => {
-                hideMobileNav();
-              });
-            }
-        });
-      }
+            $(".page-offside-left .page, .page-offside-left .page-offside-label").on("swiped-right", (e) => {
+              // если свайп вправо на Свайпере или блоке с классом main-menu-disabled, то не показываем меню
+              let is_prohibited = $(e.target).closest(".page-offside-disabled, .swiper-container").length > 0;
+              if (!is_prohibited) {
+                showMobileNav();
+              }
+            });
+            $(".page-offside-right .page, .page-offside-right .page-offside-label").on("swiped-left", (e) => {
+              // если свайп вправо на Свайпере, то не показываем меню
+              let is_prohibited = $(e.target).closest(".page-offside-disabled, .swiper-container").length > 0;
+              if (!is_prohibited) {
+                showMobileNav();
+              }
+            });
+            $(".page-offside-left .page, .page-offside-left .page-offside, .page-offside-left .page-offside-label").on("swiped-left", () => {
+              hideMobileNav();
+            });
+            $(".page-offside-right .page, .page-offside-right .page-offside, .page-offside-right .page-offside-label").on("swiped-right", () => {
+              hideMobileNav();
+            });
+            $(".page").on("click", () => {
+              hideMobileNav();
+            });
+          }
+      });
 
       // раскрываемый список в мобильном меню
       once('menu-item--expanded-once', '.page-offside .menu-item--expanded', context).forEach(
