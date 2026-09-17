@@ -141,13 +141,21 @@ swipe-events:
     - core/once
     - core/drupalSettings
 
-facet-exposed-filters:
+facet-extension:
   version: VERSION
   css:
     component:
-      css/extensions/facet-exposed-filters.css:
+      css/extensions/facet-extension.css:
   js:
-    js/extensions/facet-exposed-filters.js: { }
+    js/extensions/facet-extension.js: { }
+  dependencies:
+    - core/drupal
+    - core/once
+
+facet-list-filter:
+  version: VERSION
+  js:
+    js/facet-list-filter.js: { }
   dependencies:
     - core/drupal
     - core/once
