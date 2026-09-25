@@ -80,9 +80,10 @@ $header-shadow:                 0 4px 20px 0 rgba(0, 0, 0, 0.1)!default;
 
 // подвал
 //
-//$footer-height:               80px!default;
 $footer-bkg:                    #1E1E1C!default;
-$footer-text:                   #fff!default;
+$footer-color:                  #fff!default;
+$footer-hover-color:            #fff!default;
+$footer-text:                   $footer-color!default; // устаревшая
 
 // меню
 //
