@@ -93,4 +93,20 @@
   }
 }
 
-
+.page-footer {
+  a {
+    color: $footer-color;
+    transition: color 150ms;
+    &:hover { color: $footer-hover-color; }
+  }
+  .menu {
+    > .menu-item {
+      &:hover {
+        > a { color: $footer-hover-color; }
+      }
+      > a {
+        color: $footer-color;
+      }
+    }
+  }
+}
