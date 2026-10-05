@@ -15,11 +15,11 @@
     attach(context) {
       once('back-to-top-once', '[data-drupal-selector="back-to-top"]', context).forEach(
         (element) => {
-          $(window).scroll(function () {
+          $(window).on('scroll', function () {
             if ($(this).scrollTop() > 400) {
-              $(element).fadeIn();
+              $(element).addClass('is-visible');
             } else {
-              $(element).fadeOut();
+              $(element).removeClass('is-visible');
             }
           });
           $(element).click(function() {
