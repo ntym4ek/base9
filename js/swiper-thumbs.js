@@ -29,11 +29,19 @@
                 mousewheel: true,
               });
 
-              let parentSwiper = drupalSettings.swipers[parentId];
-              if (parentSwiper) {
+              let parentElem = document.getElementById(parentId);
+              let parentSwiper = (typeof drupalSettings !== 'undefined' && drupalSettings.swipers && drupalSettings.swipers[parentId])
+                ? drupalSettings.swipers[parentId]
+                : (parentElem ? parentElem.swiper : null);
+
+              if (parentSwiper && parentSwiper.thumbs) {
                 parentSwiper.thumbs.swiper = sw;
-                parentSwiper.thumbs.init();
-                parentSwiper.update();
+                if (typeof parentSwiper.thumbs.init === 'function') {
+                  parentSwiper.thumbs.init();
+                }
+                if (typeof parentSwiper.update === 'function') {
+                  parentSwiper.update();
+                }
               }
             }
           }

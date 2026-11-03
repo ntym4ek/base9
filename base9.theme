@@ -59,12 +59,14 @@ function base9_preprocess_page(array &$vars): void
   // - Можно отключить заголовок
   $vars['is_title_on'] = true;
 
-  // - Баннер с заголовком в начале страницы
+  // @deprecated Устаревший механизм поиска баннеров страниц в файловой системе.
+  // Причины отключения:
+  // 1. Директория public://images/page-banners не используется на сайте.
+  // 2. Цикл с десятками синхронных вызовов file_exists() на каждый запрос создавал
+  //    существенную паразитную нагрузку на дисковый ввод-вывод (I/O).
+  // 3. Баннеры страниц на сайте выводятся штатными средствами Drupal (блоки, параграфы, сущности).
+  /*
   $banner = [];
-
-  // Вывод баннера, если в папке page-banners есть изображение с именем, аналогичным пути.
-  // Проверка наличия файла выполняется по всей цепочке пути, от самой длинной до короткой.
-  // Для главной страницы проверяется наличие баннера с именем "front".
   $banner_uri = '';
   if (\Drupal::service('path.matcher')->isFrontPage()) {
     $paths = ['front'];
@@ -88,7 +90,7 @@ function base9_preprocess_page(array &$vars): void
           $uri = 'public://images/page-banners/' . $filename . '.' . $ext;
           if (file_exists($uri)) {
             $banner_uri = $uri;
-            break;
+            break 2;
           }
         }
         array_pop($chunks);
@@ -97,18 +99,9 @@ function base9_preprocess_page(array &$vars): void
   }
   if ($banner_uri) {
     $vars['is_title_on'] = false;
-    // можно задать текст или любой html для баннера
-//    $banner['title'] = [
-//      'prefix' => '',
-//      'suffix' => '',
-//      'text' => '',
-//    ];
-
-    // ширина экрана, до которой выводится мобильная версия баннера
     $banner['break'] = \Drupal::service(ThemeSettingsProvider::class)->getSetting('nav-mobile-hide-width') ?? '1024';
     $banner['image']['url'] = \Drupal::service('file_url_generator')->generateString($banner_uri);
 
-    // если стиля для мобильного баннера не существует, создать его
     if (!ImageStyle::load('banner_mobile')) {
       $image_style = ImageStyle::create([
         'name' => 'banner_mobile',
@@ -126,11 +119,10 @@ function base9_preprocess_page(array &$vars): void
       ]);
       $image_style->save();
     }
-    // версия баннера для мобильных
     $banner['image']['mobile_url'] = ImageStyle::load('banner_mobile')->buildUrl($banner_uri);
-
     $vars['banner'] = $banner;
   }
+  */
 }
 
 /**

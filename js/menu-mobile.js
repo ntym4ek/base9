@@ -21,7 +21,7 @@
         $("body").data("page-offside-opened", false).removeClass("page-offside-opened");
       }
       function toggleMobileNav() {
-        if ($("body").data("page-offside-opened")) {
+        if ($("body").hasClass("page-offside-opened")) {
           hideMobileNav();
         } else {
           showMobileNav();
@@ -36,20 +36,21 @@
           if ($(window).width() < menuHideWidth) {
             // клик по иконке Меню
             $(".page-offside-label").on("click", (e) => {
-              toggleMobileNav();
+              e.preventDefault();
               e.stopPropagation();
+              toggleMobileNav();
             });
 
             $(".page-offside-left .page, .page-offside-left .page-offside-label").on("swiped-right", (e) => {
               // если свайп вправо на Свайпере или блоке с классом main-menu-disabled, то не показываем меню
-              let is_prohibited = $(e.target).closest(".page-offside-disabled, .swiper-container").length > 0;
+              let is_prohibited = $(e.target).closest(".page-offside-disabled, .swiper-container, .swiper").length > 0;
               if (!is_prohibited) {
                 showMobileNav();
               }
             });
             $(".page-offside-right .page, .page-offside-right .page-offside-label").on("swiped-left", (e) => {
-              // если свайп вправо на Свайпере, то не показываем меню
-              let is_prohibited = $(e.target).closest(".page-offside-disabled, .swiper-container").length > 0;
+              // если свайп влево на Свайпере, то не показываем меню
+              let is_prohibited = $(e.target).closest(".page-offside-disabled, .swiper-container, .swiper").length > 0;
               if (!is_prohibited) {
                 showMobileNav();
               }
@@ -60,8 +61,10 @@
             $(".page-offside-right .page, .page-offside-right .page-offside, .page-offside-right .page-offside-label").on("swiped-right", () => {
               hideMobileNav();
             });
-            $(".page").on("click", () => {
-              hideMobileNav();
+            $(".page").on("click", (e) => {
+              if ($("body").hasClass("page-offside-opened") && !$(e.target).closest(".page-offside-label").length) {
+                hideMobileNav();
+              }
             });
           }
       });
