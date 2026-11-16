@@ -5,6 +5,7 @@ version: 1.0.0
 libraries:
   - base9/base
   - base9/messages
+  - base9/password-toggle
   - core/normalize
 libraries-extend:
   user/drupal.user:

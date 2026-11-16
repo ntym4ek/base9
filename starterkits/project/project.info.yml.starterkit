@@ -10,6 +10,7 @@ libraries:
   - base9/layout-kccc
   - base9/back-to-top
   - base9/menu-mobile
+  - base9/password-toggle
   - project/styles
 
 regions:

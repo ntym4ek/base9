@@ -149,3 +149,14 @@ function base9_preprocess_input_dropdown_filter(array &$variables)
   // для функции темизации подключить скрипт
   $variables['#attached']['library'][] = 'base9/input-dropdown-filter';
 }
+
+/**
+ * Implements hook_preprocess_input().
+ */
+function base9_preprocess_input(array &$variables): void
+{
+  if (isset($variables['element']['#type']) && $variables['element']['#type'] === 'password') {
+    $variables['#attached']['library'][] = 'base9/password-toggle';
+  }
+}
+

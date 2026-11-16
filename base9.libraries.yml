@@ -72,6 +72,17 @@ click-to-copy:
     - core/drupal
     - core/once
 
+password-toggle:
+  version: VERSION
+  css:
+    component:
+      css/extensions/password-toggle.css: {}
+  js:
+    js/extensions/password-toggle.js: {}
+  dependencies:
+    - core/drupal
+    - core/once
+
 back-to-top:
   version: VERSION
   css:
